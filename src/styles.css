@@ -78,6 +78,11 @@
 
 :root {
   --radius: 0.625rem;
+  --brand-navy: oklch(0.22 0.06 260);
+  --brand-navy-dark: oklch(0.15 0.05 260);
+  --brand-emerald: oklch(0.55 0.13 160);
+  --brand-gold: oklch(0.82 0.16 75);
+  --brand-warn: oklch(0.7 0.16 45);
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
