@@ -64,7 +64,8 @@
   --color-brand-emerald: var(--brand-emerald);
   --color-brand-gold: var(--brand-gold);
   --color-brand-warn: var(--brand-warn);
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", ui-serif, Georgia, serif;
 }
 
 @utility animate-pulse-cta {
@@ -78,11 +79,18 @@
 
 :root {
   --radius: 0.625rem;
-  --brand-navy: oklch(0.22 0.06 260);
-  --brand-navy-dark: oklch(0.15 0.05 260);
-  --brand-emerald: oklch(0.55 0.13 160);
-  --brand-gold: oklch(0.82 0.16 75);
-  --brand-warn: oklch(0.7 0.16 45);
+  /* ABC Financiero brand. Legacy token names kept for compatibility, remapped to new palette. */
+  --brand-navy: #1C2B27;          /* neutral-900 -- dark text / dark surfaces */
+  --brand-navy-dark: #0E1816;     /* deeper neutral for hero/footer */
+  --brand-emerald: #1A6B55;       /* primary green */
+  --brand-emerald-mid: #2E9B7A;
+  --brand-emerald-light: #E8F5F0;
+  --brand-gold: #F4A535;          /* accent amber (named "gold" for legacy class compat) */
+  --brand-gold-light: #FEF6E4;
+  --brand-warn: #B47A20;
+  --brand-neutral-700: #3D5A52;
+  --brand-neutral-400: #8BA89F;
+  --brand-neutral-100: #F0F5F3;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
