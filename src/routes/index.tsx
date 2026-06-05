@@ -137,19 +137,19 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-to-b from-white via-brand-emerald-light to-white"
+      className="relative overflow-hidden bg-white"
     >
       <div
-        className="absolute inset-0 opacity-60 pointer-events-none"
+        className="absolute inset-0 opacity-40 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 15% 20%, oklch(0.92 0.06 165 / 0.6), transparent 55%), radial-gradient(circle at 85% 80%, oklch(0.88 0.07 165 / 0.55), transparent 55%)",
+            "radial-gradient(circle at 50% 0%, oklch(0.94 0.04 165 / 0.35), transparent 60%)",
         }}
       />
       <div className="relative mx-auto max-w-5xl px-4 py-20 text-center md:py-28">
         <span className="inline-flex items-center gap-2 rounded-full border border-brand-emerald-border bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald shadow-sm">
           <ShieldCheck className="size-4" />
-          Educación financiera honesta
+          Educación financiera
         </span>
         <h1
           className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-navy md:text-6xl"
