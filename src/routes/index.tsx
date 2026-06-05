@@ -6,7 +6,6 @@ import {
   TrendingDown,
   ShieldAlert,
   Compass,
-  Settings2,
   Check,
   CheckCheck,
   Lock,
@@ -20,6 +19,12 @@ import {
   HandCoins,
   Globe2,
   MessageCircle,
+  Mail,
+  Instagram,
+  ClipboardList,
+  CalendarDays,
+  LineChart,
+  Repeat,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -53,14 +58,14 @@ function CTA({
   className = "",
   href = WHATSAPP_URL,
   external = true,
-  variant = "cta" as "cta" | "ghostGreen",
+  variant = "cta" as "cta" | "ghostGreen" | "navy",
 }: {
   children: React.ReactNode;
   size?: "lg" | "xl";
   className?: string;
   href?: string;
   external?: boolean;
-  variant?: "cta" | "ghostGreen";
+  variant?: "cta" | "ghostGreen" | "navy";
 }) {
   return (
     <Button asChild variant={variant} size={size} className={className}>
@@ -76,7 +81,7 @@ function CTA({
 
 function Navbar() {
   const [open, setOpen] = useState(false);
-  const links = [{ href: "#top", label: "Homepage" }];
+  const links = [{ href: "#top", label: "Inicio" }];
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand-emerald-border bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
@@ -132,40 +137,40 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-emerald to-brand-emerald-mid text-white"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-brand-emerald-light to-white"
     >
       <div
-        className="absolute inset-0 opacity-25"
+        className="absolute inset-0 opacity-60 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, oklch(0.72 0.08 165 / 0.45), transparent 45%), radial-gradient(circle at 80% 70%, oklch(0.45 0.07 165 / 0.5), transparent 50%)",
+            "radial-gradient(circle at 15% 20%, oklch(0.92 0.06 165 / 0.6), transparent 55%), radial-gradient(circle at 85% 80%, oklch(0.88 0.07 165 / 0.55), transparent 55%)",
         }}
       />
       <div className="relative mx-auto max-w-5xl px-4 py-20 text-center md:py-28">
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur">
+        <span className="inline-flex items-center gap-2 rounded-full border border-brand-emerald-border bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald shadow-sm">
           <ShieldCheck className="size-4" />
-          Educación financiera 100% transparente
+          Educación financiera honesta
         </span>
         <h1
-          className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-white md:text-6xl"
+          className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-navy md:text-6xl"
           style={{ letterSpacing: "-0.03em" }}
         >
           Aprende a invertir en la{" "}
-          <span className="italic font-serif font-normal underline decoration-white/40 decoration-[3px] underline-offset-[10px]">
+          <span className="italic font-serif font-normal text-brand-emerald underline decoration-brand-emerald-mid/50 decoration-[3px] underline-offset-[10px]">
             Bolsa de Valores
           </span>{" "}
           desde Honduras
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-[1.65] text-white/90 md:text-lg">
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-[1.65] text-brand-neutral-700 md:text-lg">
           Recibe un acompañamiento para que entiendas cómo invertir tu dinero en activos
           financieros en la Bolsa de Valores.
         </p>
         <div className="mt-10 flex flex-col items-center gap-3">
-          <CTA href="#beneficios" external={false}>
+          <CTA href="#beneficios" external={false} variant="navy">
             Saber más
             <ArrowDown className="size-4" />
           </CTA>
-          <p className="text-xs text-white/70">Cupos limitados · Atención personalizada</p>
+          <p className="text-xs text-brand-neutral-400">Cupos limitados · Atención personalizada</p>
         </div>
       </div>
     </section>
@@ -188,7 +193,7 @@ function PainPoints() {
     },
   ];
   return (
-    <section id="beneficios" className="bg-brand-neutral-100 py-20">
+    <section id="beneficios" className="bg-white py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
@@ -205,11 +210,11 @@ function PainPoints() {
           {items.map(({ icon: Icon, text }, i) => (
             <div
               key={i}
-              className="group rounded-[20px] border border-brand-emerald-border bg-brand-emerald-light p-6 transition hover:-translate-y-1"
-              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
+              className="group rounded-[20px] border border-brand-emerald-border bg-white p-6 transition hover:-translate-y-1"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
             >
               <div className="flex items-center justify-between">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-white text-brand-emerald-mid border border-brand-emerald-border">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-emerald-light text-brand-emerald border border-brand-emerald-border">
                   <Icon className="size-5" />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-[0.08em] text-brand-neutral-400">
@@ -226,15 +231,30 @@ function PainPoints() {
 }
 
 function WhatsIncluded() {
-  const items = [
+  const steps = [
     {
-      icon: Settings2,
-      title: "Configuración Técnica Paso a Paso",
-      desc: "Abrimos y verificamos tu cuenta juntos en un broker 100% regulado en EE.UU. que acepta hondureños.",
+      icon: ClipboardList,
+      title: "Diagnóstico previo",
+      desc: "Antes de la sesión revisamos tu situación, metas y nivel actual para personalizar la mentoría.",
+    },
+    {
+      icon: CalendarDays,
+      title: "Día de la sesión 1:1",
+      desc: "El día reservado abordamos desde lo más básico hasta un análisis real de activos financieros.",
+    },
+    {
+      icon: LineChart,
+      title: "Claridad para empezar",
+      desc: "Sales con claridad para empezar a comprar activos financieros en la Bolsa de Valores.",
+    },
+    {
+      icon: Repeat,
+      title: "Seguimiento educativo",
+      desc: "Seguimiento de tu inversión para darte consejos educativos en los días posteriores.",
     },
   ];
   return (
-    <section id="incluye" className="bg-white py-20">
+    <section id="incluye" className="bg-brand-neutral-100/40 py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
@@ -243,25 +263,35 @@ function WhatsIncluded() {
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-brand-emerald md:text-4xl">
             Tu Mapa de Ruta Personalizado
           </h2>
-          <p className="mt-3 text-brand-neutral-700">Qué incluye por L1,800</p>
+          <p className="mt-3 text-brand-neutral-700">Cuatro pasos claros, sin enredos</p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-1 max-w-xl mx-auto">
-          {items.map(({ icon: Icon, title, desc }, i) => (
-            <div
+
+        <ol className="relative mt-14 grid gap-6 md:grid-cols-4">
+          {/* connector line on desktop */}
+          <div
+            className="pointer-events-none absolute left-0 right-0 top-6 hidden h-px md:block"
+            style={{
+              background:
+                "repeating-linear-gradient(to right, var(--brand-emerald-border) 0 8px, transparent 8px 16px)",
+            }}
+          />
+          {steps.map(({ icon: Icon, title, desc }, i) => (
+            <li
               key={i}
-              className="group flex gap-5 rounded-[20px] border border-brand-emerald-border bg-brand-emerald-light p-6 transition hover:-translate-y-1"
-              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
+              className="relative rounded-[20px] border border-brand-emerald-border bg-white p-6"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
             >
-              <div className="shrink-0 grid h-12 w-12 place-items-center rounded-xl bg-white text-brand-emerald-mid border border-brand-emerald-border">
-                <Icon className="size-6" />
+              <div className="relative z-10 grid h-12 w-12 place-items-center rounded-full bg-brand-emerald text-white">
+                <Icon className="size-5" />
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-brand-emerald">{title}</h3>
-                <p className="mt-2 text-sm leading-[1.65] text-brand-neutral-700">{desc}</p>
-              </div>
-            </div>
+              <span className="absolute right-5 top-5 text-xs font-extrabold tracking-[0.12em] text-brand-emerald-mid">
+                PASO 0{i + 1}
+              </span>
+              <h3 className="mt-5 text-lg font-bold text-brand-emerald">{title}</h3>
+              <p className="mt-2 text-sm leading-[1.65] text-brand-neutral-700">{desc}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
@@ -286,7 +316,7 @@ function TrustSafety() {
     },
   ];
   return (
-    <section id="seguridad" className="bg-brand-neutral-100 py-20">
+    <section id="seguridad" className="bg-white py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="overflow-hidden rounded-[20px] border border-brand-emerald-border bg-white p-8 md:p-12">
           <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:justify-between">
@@ -298,13 +328,13 @@ function TrustSafety() {
                 Educación ética, no asesoría financiera
               </h2>
             </div>
-            <Leaf className="hidden size-10 text-brand-emerald-mid md:block" />
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {items.map((it, i) => (
               <div
                 key={i}
-                className="rounded-[20px] border border-brand-emerald-border bg-brand-emerald-light p-6"
+                className="rounded-[20px] border border-brand-emerald-border bg-white p-6"
+                style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
               >
                 <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-emerald text-white">
                   <it.icon className="size-5" />
@@ -351,7 +381,8 @@ function Testimonials() {
           {items.map((t, i) => (
             <div
               key={i}
-              className="rounded-[20px] border border-brand-emerald-border bg-brand-emerald-light p-5"
+              className="rounded-[20px] border border-brand-emerald-border bg-white p-5"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
             >
               <div className="flex items-center gap-3">
                 <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-emerald text-white text-sm font-bold">
@@ -362,7 +393,7 @@ function Testimonials() {
                   <p className="text-xs text-brand-neutral-400">Cliente verificado</p>
                 </div>
               </div>
-              <div className="relative mt-4 rounded-2xl rounded-tl-sm bg-white border border-brand-emerald-border p-4 text-sm text-brand-neutral-700">
+              <div className="relative mt-4 rounded-2xl rounded-tl-sm bg-brand-emerald-light/60 border border-brand-emerald-border p-4 text-sm text-brand-neutral-700">
                 <p className="font-serif italic leading-[1.65]">{t.msg}</p>
                 <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-brand-neutral-400">
                   {t.time}
@@ -379,24 +410,20 @@ function Testimonials() {
 
 function Pricing() {
   const features = [
+    "Sesión privada 1:1 de aproximadamente 90 minutos",
+    "Diagnóstico personalizado antes de la sesión",
     "Apertura de cuenta en broker regulado de EE.UU.",
-    "Soporte post-sesión por WhatsApp",
+    "Análisis básico de activos financieros reales",
+    "Guía paso a paso para tu primera compra",
+    "Seguimiento educativo post-sesión por WhatsApp",
   ];
   return (
-    <section className="bg-brand-neutral-100 py-20">
+    <section className="bg-white py-20">
       <div className="mx-auto max-w-3xl px-4">
         <div
           className="relative overflow-hidden rounded-[20px] border border-brand-emerald-border bg-white"
-          style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
+          style={{ boxShadow: "0 8px 30px rgba(26,107,85,0.08)" }}
         >
-          {/* Decorative leaf flourish — subtle, unique */}
-          <div className="pointer-events-none absolute -right-10 -top-10 text-brand-emerald-light">
-            <Leaf className="size-44" />
-          </div>
-          <div className="pointer-events-none absolute -left-8 -bottom-8 text-brand-emerald-light">
-            <Sparkles className="size-32" />
-          </div>
-
           <div className="relative bg-brand-emerald px-8 py-6 text-center text-white">
             <p className="text-xs font-bold uppercase tracking-[0.08em] text-white/80">
               Mentoría Privada 1:1
@@ -497,9 +524,7 @@ function FAQ() {
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-brand-emerald md:text-4xl">
               Todo lo que quieres saber antes de empezar.
             </h2>
-            <p
-              className="mt-4 font-serif italic text-brand-neutral-700 text-lg leading-[1.65]"
-            >
+            <p className="mt-4 font-serif italic text-brand-neutral-700 text-lg leading-[1.65]">
               “La mejor inversión que puedes hacer es en tu propia educación financiera.”
             </p>
             <div className="mt-6 hidden md:block">
@@ -515,13 +540,13 @@ function FAQ() {
               return (
                 <li
                   key={i}
-                  className="rounded-[20px] border border-brand-emerald-border bg-brand-emerald-light overflow-hidden"
+                  className="rounded-[20px] border border-brand-emerald-border bg-white overflow-hidden"
                 >
                   <button
                     onClick={() => setOpenIdx(isOpen ? null : i)}
                     className="flex w-full items-center gap-4 px-5 py-4 text-left"
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white border border-brand-emerald-border text-xs font-extrabold text-brand-emerald">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-emerald-light border border-brand-emerald-border text-xs font-extrabold text-brand-emerald">
                       0{i + 1}
                     </span>
                     <span className="flex-1 font-bold text-brand-emerald">{it.q}</span>
@@ -552,41 +577,111 @@ function FAQ() {
 
 function Footer() {
   return (
-    <footer className="bg-brand-navy text-white/80">
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:justify-between">
-          <div className="max-w-md">
+    <footer className="relative bg-brand-navy text-white/80">
+      <div
+        className="absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, var(--brand-emerald-mid), transparent)",
+        }}
+      />
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        {/* CTA strip */}
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 rounded-[20px] border border-white/10 bg-white/[0.03] p-6 md:flex-row md:items-center md:p-8">
+          <div>
+            <h3 className="text-xl font-bold text-white md:text-2xl">
+              ¿Listo para dar tu primer paso?
+            </h3>
+            <p className="mt-1 text-sm text-white/70">
+              Agenda tu mentoría 1:1 y empieza a invertir con claridad.
+            </p>
+          </div>
+          <CTA size="lg">
+            <MessageCircle className="size-4" /> Agendar por WhatsApp
+          </CTA>
+        </div>
+
+        <div className="grid gap-10 md:grid-cols-12">
+          {/* Brand */}
+          <div className="md:col-span-5">
             <div className="flex items-center gap-2">
               <span className="grid h-9 w-9 place-items-center rounded-full bg-brand-emerald-mid text-white">
                 <Leaf className="size-4" />
               </span>
               <span className="text-lg font-extrabold text-white">{BRAND}</span>
             </div>
-            <p className="mt-4 text-xs leading-[1.65] text-white/60">
+            <p className="mt-4 max-w-sm text-sm leading-[1.7] text-white/65">
+              Educación financiera honesta para hondureños que quieren entender de verdad cómo
+              funciona la Bolsa de Valores.
+            </p>
+            <div className="mt-5 flex items-center gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
+              >
+                <MessageCircle className="size-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
+              >
+                <Instagram className="size-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="Email"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
+              >
+                <Mail className="size-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Navegación */}
+          <div className="md:col-span-3">
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">
+              Navegación
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>
+                <a href="#top" className="text-white/80 hover:text-white">Inicio</a>
+              </li>
+              <li>
+                <a href="#beneficios" className="text-white/80 hover:text-white">Beneficios</a>
+              </li>
+              <li>
+                <a href="#incluye" className="text-white/80 hover:text-white">La Mentoría</a>
+              </li>
+              <li>
+                <a href="#faq" className="text-white/80 hover:text-white">Preguntas frecuentes</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div className="md:col-span-4">
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">
+              Legal
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><a href="#" className="text-white/80 hover:text-white">Política de Privacidad</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white">Términos y Condiciones</a></li>
+            </ul>
+            <p className="mt-5 text-[11px] leading-[1.6] text-white/50">
               {BRAND} es una plataforma de educación financiera. No somos asesores financieros
               regulados por la CNBS ni captamos fondos del público. Las inversiones en la Bolsa
               de Valores conllevan riesgos. El desempeño pasado no garantiza resultados futuros.
             </p>
           </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <a href="#" className="text-white/80 hover:text-white">
-              Política de Privacidad
-            </a>
-            <a href="#" className="text-white/80 hover:text-white">
-              Términos y Condiciones
-            </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-brand-emerald-mid hover:brightness-110 font-bold"
-            >
-              Contáctanos por WhatsApp
-            </a>
-          </div>
         </div>
-        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/50">
-          © {new Date().getFullYear()} {BRAND}. Todos los derechos reservados.
+
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row">
+          <p>© {new Date().getFullYear()} {BRAND}. Todos los derechos reservados.</p>
+          <p>Hecho con cuidado desde Honduras 🇭🇳</p>
         </div>
       </div>
     </footer>
@@ -595,7 +690,7 @@ function Footer() {
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-brand-neutral-100 font-sans text-brand-neutral-700 antialiased">
+    <div className="min-h-screen bg-white font-sans text-brand-neutral-700 antialiased">
       <Navbar />
       <main>
         <Hero />
