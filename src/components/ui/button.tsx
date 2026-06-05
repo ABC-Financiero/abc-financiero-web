@@ -16,8 +16,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "bg-brand-gold text-brand-navy font-bold rounded-full shadow-lg hover:brightness-92 animate-pulse-cta",
-        navy: "bg-brand-emerald text-white rounded-full font-semibold hover:brightness-92 shadow",
+        cta: "bg-brand-emerald-mid text-white font-bold rounded-full shadow-sm hover:bg-brand-emerald transition-colors animate-pulse-cta",
+        navy: "bg-brand-emerald text-white rounded-full font-semibold hover:bg-brand-navy transition-colors",
+        ghostGreen: "bg-transparent text-brand-emerald border-[1.5px] border-brand-emerald rounded-full font-semibold hover:bg-brand-emerald-light transition-colors",
       },
       size: {
         default: "h-9 px-4 py-2",
