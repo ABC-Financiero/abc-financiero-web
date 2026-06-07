@@ -345,8 +345,8 @@ function TrustSafety() {
             {items.map((it, i) => (
               <div
                 key={i}
-                className="rounded-[20px] border border-brand-emerald-border bg-white p-6"
-                style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
+                className="rounded-[20px] border border-brand-emerald-border bg-white p-6 transition hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(26,107,85,0.18)]"
+                style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
               >
                 <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-emerald text-white">
                   <it.icon className="size-5" />
