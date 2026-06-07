@@ -264,7 +264,7 @@ function WhatsIncluded() {
     },
   ];
   return (
-    <section id="incluye" className="relative bg-dotted-emerald py-20">
+    <section id="incluye" className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
 
