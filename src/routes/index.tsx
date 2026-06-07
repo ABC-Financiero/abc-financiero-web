@@ -327,9 +327,10 @@ function TrustSafety() {
     },
   ];
   return (
-    <section id="seguridad" className="bg-white py-20">
+    <section id="seguridad" className="relative bg-warm-paper py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
-        <div className="overflow-hidden rounded-[20px] border border-brand-emerald-border bg-white p-8 md:p-12">
+        <div className="overflow-hidden rounded-[24px] border border-brand-emerald-border bg-soft-emerald p-8 md:p-12 shadow-[0_8px_30px_-12px_rgba(26,107,85,0.12)]">
           <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:justify-between">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
