@@ -432,8 +432,10 @@ function Pricing() {
     "Seguimiento educativo post-sesión por WhatsApp",
   ];
   return (
-    <section className="bg-white py-20">
+    <section className="relative bg-warm-paper py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-3xl px-4">
+
         <div
           className="relative overflow-hidden rounded-[20px] border border-brand-emerald-border bg-white"
           style={{ boxShadow: "0 8px 30px rgba(26,107,85,0.08)" }}
