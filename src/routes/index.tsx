@@ -201,8 +201,9 @@ function PainPoints() {
     },
   ];
   return (
-    <section id="beneficios" className="bg-white py-20">
+    <section id="beneficios" className="relative bg-warm-paper py-20">
       <div className="mx-auto max-w-6xl px-4">
+
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
             <Sparkles className="size-3.5" /> Tres señales
