@@ -709,7 +709,7 @@ function Footer() {
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-warm-paper font-sans text-brand-neutral-700 antialiased">
+    <div className="min-h-screen bg-dotted-emerald font-sans text-brand-neutral-700 antialiased">
       <Navbar />
       <main>
         <Hero />
