@@ -201,7 +201,8 @@ function PainPoints() {
     },
   ];
   return (
-    <section id="beneficios" className="relative bg-warm-paper py-20">
+    <section id="beneficios" className="relative py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
 
         <div className="text-center">
