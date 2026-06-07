@@ -289,8 +289,8 @@ function WhatsIncluded() {
           {steps.map(({ icon: Icon, title, desc }, i) => (
             <li
               key={i}
-              className="relative rounded-[20px] border border-brand-emerald-border bg-white p-6"
-              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
+              className="relative card-soft rounded-[20px] border border-brand-emerald-border p-6 transition hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(26,107,85,0.18)]"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
             >
               <div className="relative z-10 grid h-12 w-12 place-items-center rounded-full bg-brand-emerald text-white">
                 <Icon className="size-5" />
