@@ -433,7 +433,7 @@ function Pricing() {
     "Seguimiento educativo post-sesión por WhatsApp",
   ];
   return (
-    <section className="relative bg-warm-paper py-20">
+    <section className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-3xl px-4">
 
