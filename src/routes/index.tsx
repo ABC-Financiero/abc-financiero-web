@@ -219,8 +219,8 @@ function PainPoints() {
           {items.map(({ icon: Icon, text }, i) => (
             <div
               key={i}
-              className="group rounded-[20px] border border-brand-emerald-border bg-white p-6 transition hover:-translate-y-1"
-              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
+              className="group card-soft rounded-[20px] border border-brand-emerald-border p-6 transition hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(26,107,85,0.18)]"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
             >
               <div className="flex items-center justify-between">
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-emerald-light text-brand-emerald border border-brand-emerald-border">
