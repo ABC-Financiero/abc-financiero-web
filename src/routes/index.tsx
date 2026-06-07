@@ -137,17 +137,23 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-white"
+      className="relative overflow-hidden bg-hero-glow"
     >
+      {/* faint dotted overlay for texture */}
       <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 50% 0%, oklch(0.94 0.04 165 / 0.35), transparent 60%)",
+            "radial-gradient(color-mix(in oklab, var(--brand-emerald) 14%, transparent) 1px, transparent 1.4px)",
+          backgroundSize: "22px 22px",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 75%)",
         }}
       />
       <div className="relative mx-auto max-w-5xl px-4 py-20 text-center md:py-28">
-        <span className="inline-flex items-center gap-2 rounded-full border border-brand-emerald-border bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald shadow-sm">
+        <span className="inline-flex items-center gap-2 rounded-full border border-brand-emerald-border bg-white/80 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald shadow-sm">
           <ShieldCheck className="size-4" />
           Educación financiera
         </span>
@@ -173,6 +179,8 @@ function Hero() {
           <p className="text-xs text-brand-neutral-400">Cupos limitados · Atención personalizada</p>
         </div>
       </div>
+      {/* hairline divider */}
+      <div className="section-divider absolute inset-x-0 bottom-0 h-px" />
     </section>
   );
 }
