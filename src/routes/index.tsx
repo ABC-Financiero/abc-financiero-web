@@ -382,7 +382,7 @@ function Testimonials() {
     },
   ];
   return (
-    <section id="testimonios" className="relative bg-dotted-emerald py-20">
+    <section id="testimonios" className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
 
