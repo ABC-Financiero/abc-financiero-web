@@ -381,8 +381,10 @@ function Testimonials() {
     },
   ];
   return (
-    <section id="testimonios" className="bg-white py-20">
+    <section id="testimonios" className="relative bg-dotted-emerald py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
+
         <h2 className="text-center text-3xl font-bold tracking-tight text-brand-emerald md:text-4xl">
           Hondureños que ya dieron el primer paso
         </h2>
