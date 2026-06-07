@@ -530,8 +530,10 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-white py-20">
+    <section id="faq" className="relative bg-dotted-emerald py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-5xl px-4">
+
         <div className="grid gap-12 md:grid-cols-[1fr_2fr] md:gap-16 items-start">
           <div className="md:sticky md:top-24">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
