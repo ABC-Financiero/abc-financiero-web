@@ -531,7 +531,7 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative bg-dotted-emerald py-20">
+    <section id="faq" className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-5xl px-4">
 
