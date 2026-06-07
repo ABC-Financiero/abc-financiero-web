@@ -137,17 +137,23 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-white"
+      className="relative overflow-hidden bg-hero-glow"
     >
+      {/* faint dotted overlay for texture */}
       <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 50% 0%, oklch(0.94 0.04 165 / 0.35), transparent 60%)",
+            "radial-gradient(color-mix(in oklab, var(--brand-emerald) 14%, transparent) 1px, transparent 1.4px)",
+          backgroundSize: "22px 22px",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 75%)",
         }}
       />
       <div className="relative mx-auto max-w-5xl px-4 py-20 text-center md:py-28">
-        <span className="inline-flex items-center gap-2 rounded-full border border-brand-emerald-border bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald shadow-sm">
+        <span className="inline-flex items-center gap-2 rounded-full border border-brand-emerald-border bg-white/80 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald shadow-sm">
           <ShieldCheck className="size-4" />
           Educación financiera
         </span>
@@ -173,6 +179,8 @@ function Hero() {
           <p className="text-xs text-brand-neutral-400">Cupos limitados · Atención personalizada</p>
         </div>
       </div>
+      {/* hairline divider */}
+      <div className="section-divider absolute inset-x-0 bottom-0 h-px" />
     </section>
   );
 }
@@ -193,8 +201,9 @@ function PainPoints() {
     },
   ];
   return (
-    <section id="beneficios" className="bg-white py-20">
+    <section id="beneficios" className="relative bg-warm-paper py-20">
       <div className="mx-auto max-w-6xl px-4">
+
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
             <Sparkles className="size-3.5" /> Tres señales
@@ -210,8 +219,8 @@ function PainPoints() {
           {items.map(({ icon: Icon, text }, i) => (
             <div
               key={i}
-              className="group rounded-[20px] border border-brand-emerald-border bg-white p-6 transition hover:-translate-y-1"
-              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
+              className="group card-soft rounded-[20px] border border-brand-emerald-border p-6 transition hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(26,107,85,0.18)]"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
             >
               <div className="flex items-center justify-between">
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-emerald-light text-brand-emerald border border-brand-emerald-border">
@@ -254,8 +263,10 @@ function WhatsIncluded() {
     },
   ];
   return (
-    <section id="incluye" className="bg-brand-neutral-100/40 py-20">
+    <section id="incluye" className="relative bg-dotted-emerald py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
+
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
             <GraduationCap className="size-3.5" /> La Mentoría 1:1
@@ -278,8 +289,8 @@ function WhatsIncluded() {
           {steps.map(({ icon: Icon, title, desc }, i) => (
             <li
               key={i}
-              className="relative rounded-[20px] border border-brand-emerald-border bg-white p-6"
-              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
+              className="relative card-soft rounded-[20px] border border-brand-emerald-border p-6 transition hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(26,107,85,0.18)]"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
             >
               <div className="relative z-10 grid h-12 w-12 place-items-center rounded-full bg-brand-emerald text-white">
                 <Icon className="size-5" />
@@ -316,9 +327,10 @@ function TrustSafety() {
     },
   ];
   return (
-    <section id="seguridad" className="bg-white py-20">
+    <section id="seguridad" className="relative bg-warm-paper py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
-        <div className="overflow-hidden rounded-[20px] border border-brand-emerald-border bg-white p-8 md:p-12">
+        <div className="overflow-hidden rounded-[24px] border border-brand-emerald-border bg-soft-emerald p-8 md:p-12 shadow-[0_8px_30px_-12px_rgba(26,107,85,0.12)]">
           <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:justify-between">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
@@ -333,8 +345,8 @@ function TrustSafety() {
             {items.map((it, i) => (
               <div
                 key={i}
-                className="rounded-[20px] border border-brand-emerald-border bg-white p-6"
-                style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
+                className="rounded-[20px] border border-brand-emerald-border bg-white p-6 transition hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(26,107,85,0.18)]"
+                style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
               >
                 <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-emerald text-white">
                   <it.icon className="size-5" />
@@ -369,8 +381,10 @@ function Testimonials() {
     },
   ];
   return (
-    <section id="testimonios" className="bg-white py-20">
+    <section id="testimonios" className="relative bg-dotted-emerald py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
+
         <h2 className="text-center text-3xl font-bold tracking-tight text-brand-emerald md:text-4xl">
           Hondureños que ya dieron el primer paso
         </h2>
@@ -381,8 +395,8 @@ function Testimonials() {
           {items.map((t, i) => (
             <div
               key={i}
-              className="rounded-[20px] border border-brand-emerald-border bg-white p-5"
-              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.05)" }}
+              className="card-soft rounded-[20px] border border-brand-emerald-border p-5 transition hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(26,107,85,0.18)]"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
             >
               <div className="flex items-center gap-3">
                 <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-emerald text-white text-sm font-bold">
@@ -418,8 +432,10 @@ function Pricing() {
     "Seguimiento educativo post-sesión por WhatsApp",
   ];
   return (
-    <section className="bg-white py-20">
+    <section className="relative bg-warm-paper py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-3xl px-4">
+
         <div
           className="relative overflow-hidden rounded-[20px] border border-brand-emerald-border bg-white"
           style={{ boxShadow: "0 8px 30px rgba(26,107,85,0.08)" }}
@@ -514,8 +530,10 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-white py-20">
+    <section id="faq" className="relative bg-dotted-emerald py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-5xl px-4">
+
         <div className="grid gap-12 md:grid-cols-[1fr_2fr] md:gap-16 items-start">
           <div className="md:sticky md:top-24">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
@@ -690,7 +708,7 @@ function Footer() {
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-white font-sans text-brand-neutral-700 antialiased">
+    <div className="min-h-screen bg-warm-paper font-sans text-brand-neutral-700 antialiased">
       <Navbar />
       <main>
         <Hero />
