@@ -328,7 +328,7 @@ function TrustSafety() {
     },
   ];
   return (
-    <section id="seguridad" className="relative bg-warm-paper py-20">
+    <section id="seguridad" className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
         <div className="overflow-hidden rounded-[24px] border border-brand-emerald-border bg-soft-emerald p-8 md:p-12 shadow-[0_8px_30px_-12px_rgba(26,107,85,0.12)]">
