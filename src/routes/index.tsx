@@ -263,8 +263,10 @@ function WhatsIncluded() {
     },
   ];
   return (
-    <section id="incluye" className="bg-brand-neutral-100/40 py-20">
+    <section id="incluye" className="relative bg-dotted-emerald py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
+
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-emerald-light px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-emerald">
             <GraduationCap className="size-3.5" /> La Mentoría 1:1
