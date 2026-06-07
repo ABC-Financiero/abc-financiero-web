@@ -324,7 +324,7 @@ function TrustSafety() {
     {
       icon: Globe2,
       title: "Cumplimiento Legal",
-      desc: "Guía básica sobre cómo declarar tus inversiones en el extranjero y tus impuestos de forma transparente en Honduras.",
+      desc: "Guía básica sobre cómo declarar tus inversiones en el extranjero y tus impuestos de forma transparente.",
     },
   ];
   return (
