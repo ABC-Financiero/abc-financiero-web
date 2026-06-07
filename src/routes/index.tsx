@@ -201,7 +201,8 @@ function PainPoints() {
     },
   ];
   return (
-    <section id="beneficios" className="relative bg-warm-paper py-20">
+    <section id="beneficios" className="relative py-20">
+      <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
 
         <div className="text-center">
@@ -263,7 +264,7 @@ function WhatsIncluded() {
     },
   ];
   return (
-    <section id="incluye" className="relative bg-dotted-emerald py-20">
+    <section id="incluye" className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
 
@@ -327,7 +328,7 @@ function TrustSafety() {
     },
   ];
   return (
-    <section id="seguridad" className="relative bg-warm-paper py-20">
+    <section id="seguridad" className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
         <div className="overflow-hidden rounded-[24px] border border-brand-emerald-border bg-soft-emerald p-8 md:p-12 shadow-[0_8px_30px_-12px_rgba(26,107,85,0.12)]">
@@ -381,7 +382,7 @@ function Testimonials() {
     },
   ];
   return (
-    <section id="testimonios" className="relative bg-dotted-emerald py-20">
+    <section id="testimonios" className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-6xl px-4">
 
@@ -432,7 +433,7 @@ function Pricing() {
     "Seguimiento educativo post-sesión por WhatsApp",
   ];
   return (
-    <section className="relative bg-warm-paper py-20">
+    <section className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-3xl px-4">
 
@@ -530,7 +531,7 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative bg-dotted-emerald py-20">
+    <section id="faq" className="relative py-20">
       <div className="section-divider absolute inset-x-0 top-0 h-px" />
       <div className="mx-auto max-w-5xl px-4">
 
@@ -708,7 +709,7 @@ function Footer() {
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-warm-paper font-sans text-brand-neutral-700 antialiased">
+    <div className="min-h-screen bg-dotted-emerald font-sans text-brand-neutral-700 antialiased">
       <Navbar />
       <main>
         <Hero />
