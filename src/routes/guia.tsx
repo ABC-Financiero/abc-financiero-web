@@ -1,21 +1,29 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import {
   Menu,
   X,
   Leaf,
   Check,
   ArrowRight,
+  Sparkles,
+  MessageCircle,
+  Mail,
+  Instagram,
   CheckCircle2 as IconCircleCheck,
   Landmark as IconBuildingBank,
   UserPlus as IconUserPlus,
-  CandlestickChart as IconChartCandle,
-  RefreshCw as IconRefresh,
+  Wallet as IconWallet,
+  LineChart as IconLineChart,
+  ShoppingCart as IconShoppingCart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { subscribeToBrevoList } from "@/lib/brevo.functions";
 
 const BRAND = "ABC Financiero";
 const BREVO_LIST_ID = 12;
+const WHATSAPP_URL = "https://wa.link/spml85";
 
 export const Route = createFileRoute("/guia")({
   head: () => ({
@@ -24,13 +32,13 @@ export const Route = createFileRoute("/guia")({
       {
         name: "description",
         content:
-          "Descarga la guía paso a paso para abrir tu cuenta en Hapi y empezar a invertir desde Honduras con tan solo $10.",
+          "Descarga la guía paso a paso para abrir tu cuenta en Hapi, depositar sin errores y hacer tu primera compra desde Honduras.",
       },
       { property: "og:title", content: `Guía gratis para invertir desde Honduras | ${BRAND}` },
       {
         property: "og:description",
         content:
-          "Aprende a abrir tu cuenta en Hapi y empezar a invertir en la bolsa de valores desde Honduras. Guía gratis.",
+          "Aprende a abrir tu cuenta en Hapi, depositar sin errores y comprar tu primer activo desde Honduras. Guía gratis.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -106,37 +114,16 @@ function LeadForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const subscribe = useServerFn(subscribeToBrevoList);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim()) return;
     setStatus("loading");
     try {
-      const apiKey = import.meta.env.VITE_BREVO_API_KEY as string | undefined;
-      if (!apiKey) throw new Error("Missing API key");
-      const res = await fetch("https://api.brevo.com/v3/contacts", {
-        method: "POST",
-        headers: {
-          "api-key": apiKey,
-          "content-type": "application/json",
-          accept: "application/json",
-        },
-        body: JSON.stringify({
-          email: email.trim(),
-          attributes: { FIRSTNAME: name.trim() },
-          listIds: [BREVO_LIST_ID],
-          updateEnabled: true,
-        }),
+      await subscribe({
+        data: { name: name.trim(), email: email.trim(), listId: BREVO_LIST_ID },
       });
-      if (!res.ok && res.status !== 204) {
-        const data = await res.json().catch(() => ({}));
-        // Brevo returns 400 "Contact already exist" sometimes — treat as success when updateEnabled
-        if (data?.code === "duplicate_parameter") {
-          setStatus("success");
-          return;
-        }
-        throw new Error("Request failed");
-      }
       setStatus("success");
     } catch {
       setStatus("error");
@@ -218,8 +205,8 @@ function LeadForm() {
 function Hero() {
   const bullets = [
     "Cómo abrir tu cuenta en Hapi desde Honduras en menos de 10 minutos",
-    "Qué invertir primero si estás empezando desde cero",
-    "Cómo hacer crecer tu dinero aunque solo tengas $10 al mes",
+    "Cómo depositar dinero sin que te dé error en el camino",
+    "Cómo leer un activo y comprar tu primera inversión paso a paso",
   ];
   return (
     <section id="form" className="bg-soft-emerald">
@@ -229,12 +216,12 @@ function Hero() {
             <Leaf className="size-3.5" /> Guía gratis
           </span>
           <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-brand-navy md:text-5xl">
-            Aprende a invertir desde Honduras —{" "}
+            Abre tu cuenta en Hapi y haz tu primera inversión —{" "}
             <span className="text-brand-emerald">gratis</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-brand-neutral-700">
-            Descarga la guía paso a paso para abrir tu cuenta en Hapi, empezar a invertir
-            en la bolsa de valores desde $10 y sin experiencia previa.
+            Descarga la guía paso a paso para abrir tu cuenta en Hapi desde Honduras,
+            depositar sin errores y comprar tu primer activo con confianza.
           </p>
           <ul className="mt-7 space-y-3">
             {bullets.map((b) => (
@@ -259,23 +246,28 @@ function WhatYouLearn() {
   const items = [
     {
       icon: IconBuildingBank,
-      title: "Cómo funciona Hapi",
+      title: "Qué es Hapi y por qué usarla",
       desc: "La plataforma que permite a hondureños invertir en la bolsa de valores de EE.UU.",
     },
     {
       icon: IconUserPlus,
-      title: "Cómo abrir tu cuenta",
-      desc: "Proceso paso a paso con capturas y explicaciones claras.",
+      title: "Cómo abrir tu cuenta paso a paso",
+      desc: "Proceso completo con capturas para que lo hagas sin trabarte.",
     },
     {
-      icon: IconChartCandle,
-      title: "Qué comprar primero",
-      desc: "Qué ETFs son ideales para quien empieza con poco dinero.",
+      icon: IconWallet,
+      title: "Cómo depositar sin que dé error",
+      desc: "Los métodos que sí funcionan desde Honduras y los detalles que evitan rechazos.",
     },
     {
-      icon: IconRefresh,
-      title: "Cómo hacer DCA",
-      desc: "La estrategia de inversión más simple y efectiva para principiantes.",
+      icon: IconLineChart,
+      title: "Cómo leer un activo de forma básica",
+      desc: "Qué significa el precio, el ticker y los datos clave antes de invertir.",
+    },
+    {
+      icon: IconShoppingCart,
+      title: "Cómo comprar tu primer activo",
+      desc: "Desde buscar el activo hasta confirmar la orden — sin perderte en la app.",
     },
   ];
   return (
@@ -286,7 +278,7 @@ function WhatYouLearn() {
             ¿Qué aprenderás con esta guía?
           </h2>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((it) => (
             <div
               key={it.title}
@@ -355,9 +347,10 @@ function SocialProof() {
 
 function MentorshipCard() {
   const bullets = [
-    "Sesiones personalizadas según tu situación",
-    "Plan de acción desde la primera sesión",
-    "Seguimiento continuo hasta ver resultados",
+    "1 sesión personalizada para aprender desde cero",
+    "Cómo analizar activos antes de invertir",
+    "Cómo aplicar estrategias adaptadas a tu situación",
+    "Qué errores evitar al empezar",
   ];
   return (
     <section className="bg-white">
@@ -376,11 +369,11 @@ function MentorshipCard() {
             Acompañamiento personalizado
           </span>
           <h3 className="mt-4 text-2xl font-extrabold tracking-tight text-brand-navy md:text-3xl">
-            Mentoría 1 a 1 de finanzas e inversiones
+            Mentoría 1:1 — Introducción en la Bolsa de Valores
           </h3>
           <p className="mt-3 text-brand-neutral-700">
-            Si quieres un plan claro, adaptado a tu situación real y con acompañamiento
-            en cada paso — la mentoría es para ti.
+            Incluye 1 sesión personalizada para aprender desde cero: cómo analizar
+            activos, cómo aplicar estrategias y qué errores evitar.
           </p>
           <ul className="mt-6 space-y-3">
             {bullets.map((b) => (
@@ -393,7 +386,7 @@ function MentorshipCard() {
           <div className="mt-8">
             <Button asChild variant="navy" size="xl" className="w-full sm:w-auto">
               <a href="/">
-                Ver mentoría completa <ArrowRight className="size-4" />
+                Me interesa <ArrowRight className="size-4" />
               </a>
             </Button>
           </div>
@@ -405,20 +398,62 @@ function MentorshipCard() {
 
 function FinalCTA() {
   return (
-    <section style={{ backgroundColor: "#1A6B55" }} className="text-white">
-      <div className="mx-auto max-w-3xl px-4 py-20 text-center">
-        <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl" style={{ color: "#fff" }}>
-          Tu dinero puede hacer más. Empieza hoy.
+    <section className="relative overflow-hidden bg-brand-navy text-white">
+      {/* Decorative gradient blobs */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full opacity-30 blur-3xl"
+        style={{ background: "radial-gradient(circle, var(--brand-emerald-mid), transparent 70%)" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-40 -right-32 h-[28rem] w-[28rem] rounded-full opacity-25 blur-3xl"
+        style={{ background: "radial-gradient(circle, var(--brand-emerald), transparent 70%)" }}
+      />
+      {/* Dotted texture */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-3xl px-4 py-24 text-center">
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur">
+          <Sparkles className="size-3.5" /> Empieza hoy
+        </span>
+        <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+          Tu dinero puede hacer más.
+          <br className="hidden sm:block" />
+          <span className="bg-gradient-to-r from-white to-brand-emerald-light bg-clip-text text-transparent">
+            Da el primer paso.
+          </span>
         </h2>
-        <div className="mt-8">
+        <p className="mx-auto mt-5 max-w-xl text-base text-white/75 md:text-lg">
+          Descarga la guía gratis y aprende cómo abrir tu cuenta en Hapi, depositar
+          sin errores y comprar tu primer activo desde Honduras.
+        </p>
+        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="#form"
-            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold transition hover:bg-brand-emerald-light"
-            style={{ color: "#1A6B55" }}
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-brand-emerald shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)] transition hover:bg-brand-emerald-light"
           >
             Quiero la guía gratis
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-4 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
+          >
+            Conocer la mentoría
           </a>
         </div>
+        <p className="mt-5 text-xs text-white/60">
+          Sin spam. Solo contenido que te ayuda a crecer.
+        </p>
       </div>
     </section>
   );
@@ -426,9 +461,105 @@ function FinalCTA() {
 
 function Footer() {
   return (
-    <footer className="border-t border-brand-emerald-border bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-10 text-center text-sm text-brand-neutral-700">
-        <p>© {new Date().getFullYear()} {BRAND}. Hecho desde Honduras 🇭🇳</p>
+    <footer className="relative bg-brand-navy text-white/80">
+      <div
+        className="absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, var(--brand-emerald-mid), transparent)",
+        }}
+      />
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        {/* CTA strip */}
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 rounded-[20px] border border-white/10 bg-white/[0.03] p-6 md:flex-row md:items-center md:p-8">
+          <div>
+            <h3 className="text-xl font-bold text-white md:text-2xl">
+              ¿Listo para dar tu primer paso?
+            </h3>
+            <p className="mt-1 text-sm text-white/70">
+              Descarga la guía gratis y empieza a invertir desde Honduras.
+            </p>
+          </div>
+          <Button asChild variant="cta" size="lg">
+            <a href="#form">
+              <ArrowRight className="size-4" /> Descargar guía gratis
+            </a>
+          </Button>
+        </div>
+
+        <div className="grid gap-10 md:grid-cols-12">
+          {/* Brand */}
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-2">
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-brand-emerald-mid text-white">
+                <Leaf className="size-4" />
+              </span>
+              <span className="text-lg font-extrabold text-white">{BRAND}</span>
+            </div>
+            <p className="mt-4 max-w-sm text-sm leading-[1.7] text-white/65">
+              Educación financiera honesta para hondureños que quieren tomar el control de sus finanzas
+              personales.
+            </p>
+            <div className="mt-5 flex items-center gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
+              >
+                <MessageCircle className="size-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
+              >
+                <Instagram className="size-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="Email"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
+              >
+                <Mail className="size-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Navegación */}
+          <div className="md:col-span-3">
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">
+              Navegación
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><a href="/" className="text-white/80 hover:text-white">Inicio</a></li>
+              <li><a href="#form" className="text-white/80 hover:text-white">Descargar guía</a></li>
+              <li><a href="/" className="text-white/80 hover:text-white">La Mentoría</a></li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div className="md:col-span-4">
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">
+              Legal
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><a href="#" className="text-white/80 hover:text-white">Política de Privacidad</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white">Términos y Condiciones</a></li>
+            </ul>
+            <p className="mt-5 text-[11px] leading-[1.6] text-white/50">
+              {BRAND} es una plataforma de educación financiera. No somos asesores financieros
+              regulados por la CNBS ni captamos fondos del público. Las inversiones en la Bolsa
+              de Valores conllevan riesgos. El desempeño pasado no garantiza resultados futuros.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row">
+          <p>© {new Date().getFullYear()} {BRAND}. Todos los derechos reservados.</p>
+          <p>Hecho desde Honduras 🇭🇳</p>
+        </div>
       </div>
     </footer>
   );
