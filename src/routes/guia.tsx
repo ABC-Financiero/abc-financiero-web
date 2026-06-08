@@ -239,7 +239,7 @@ function Hero() {
           <ul className="mt-7 space-y-3">
             {bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <IconCircleCheck className="mt-0.5 size-6 shrink-0 text-brand-emerald-mid" stroke={1.6} />
+                <IconCircleCheck className="mt-0.5 size-6 shrink-0 text-brand-emerald-mid" />
                 <span className="text-brand-neutral-700">{b}</span>
               </li>
             ))}
@@ -294,7 +294,7 @@ function WhatYouLearn() {
               style={{ borderRadius: 16 }}
             >
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-emerald-light text-brand-emerald">
-                <it.icon className="size-6" stroke={1.6} />
+                <it.icon className="size-6" />
               </div>
               <h3 className="mt-5 text-lg font-bold text-brand-navy">{it.title}</h3>
               <p className="mt-2 text-brand-neutral-700">{it.desc}</p>
@@ -385,7 +385,7 @@ function MentorshipCard() {
           <ul className="mt-6 space-y-3">
             {bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <IconCircleCheck className="mt-0.5 size-5 shrink-0 text-brand-emerald-mid" stroke={1.8} />
+                <IconCircleCheck className="mt-0.5 size-5 shrink-0 text-brand-emerald-mid" />
                 <span className="text-brand-neutral-700">{b}</span>
               </li>
             ))}
