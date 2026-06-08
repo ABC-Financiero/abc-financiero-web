@@ -6,14 +6,12 @@ import {
   Leaf,
   Check,
   ArrowRight,
+  CheckCircle2 as IconCircleCheck,
+  Landmark as IconBuildingBank,
+  UserPlus as IconUserPlus,
+  CandlestickChart as IconChartCandle,
+  RefreshCw as IconRefresh,
 } from "lucide-react";
-import {
-  IconCircleCheck,
-  IconBuildingBank,
-  IconUserPlus,
-  IconChartCandle,
-  IconRefresh,
-} from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 
 const BRAND = "ABC Financiero";
