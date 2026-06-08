@@ -630,8 +630,8 @@ function Footer() {
               <span className="text-lg font-extrabold text-white">{BRAND}</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-[1.7] text-white/65">
-              Educación financiera honesta para hondureños que quieren entender de verdad cómo
-              funciona la Bolsa de Valores.
+              Educación financiera honesta para hondureños que quieren tomar el control de sus finanzas
+              personales.
             </p>
             <div className="mt-5 flex items-center gap-3">
               <a
@@ -700,7 +700,7 @@ function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row">
           <p>© {new Date().getFullYear()} {BRAND}. Todos los derechos reservados.</p>
-          <p>Hecho con cuidado desde Honduras 🇭🇳</p>
+          <p>Hecho desde Honduras 🇭🇳</p>
         </div>
       </div>
     </footer>
