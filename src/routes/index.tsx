@@ -240,7 +240,7 @@ function Path() {
     },
   ];
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLOListElement | null>(null);
   const [visible, setVisible] = useState(false);
   const [reduced, setReduced] = useState(false);
 
