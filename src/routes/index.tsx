@@ -629,6 +629,7 @@ function Home() {
         <Path />
         <Qualification />
         <Testimonials />
+        <QualificationCall id="llamada" />
         <FinalCTA />
       </main>
       <Footer />
