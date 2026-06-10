@@ -13,6 +13,9 @@ import {
   Download,
   User,
 } from "lucide-react";
+import testimonial1 from "@/assets/testimonial-1.jpg.asset.json";
+import testimonial2 from "@/assets/testimonial-2.jpg.asset.json";
+import testimonial3 from "@/assets/testimonial-3.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.link/spml85";
