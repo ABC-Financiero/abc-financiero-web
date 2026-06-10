@@ -120,12 +120,17 @@ function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col items-start gap-3">
-            <Button asChild variant="navy" size="xl">
-              <Link to="/guia">
-                Descargar la guía gratis
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button asChild variant="navy" size="xl">
+                <Link to="/guia">
+                  Descargar la guía gratis
+                  <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="ghostGreen" size="xl">
+                <a href="#llamada">Reserva una llamada gratuita</a>
+              </Button>
+            </div>
             <p
               className="max-w-md text-sm"
               style={{ color: "rgba(28,43,39,0.7)" }}
