@@ -622,6 +622,7 @@ function Home() {
         <Wedge />
         <Path />
         <Qualification />
+        <Testimonials />
         <FinalCTA />
       </main>
       <Footer />
