@@ -17,6 +17,7 @@ import testimonial1 from "@/assets/testimonial-1.jpg.asset.json";
 import testimonial2 from "@/assets/testimonial-2.jpg.asset.json";
 import testimonial3 from "@/assets/testimonial-3.jpg.asset.json";
 import { Button } from "@/components/ui/button";
+import { QualificationCall } from "@/components/QualificationCall";
 
 const WHATSAPP_URL = "https://wa.link/spml85";
 const BRAND = "ABC Financiero";
