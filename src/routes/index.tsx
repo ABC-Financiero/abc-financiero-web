@@ -13,6 +13,9 @@ import {
   Download,
   User,
 } from "lucide-react";
+import testimonial1 from "@/assets/testimonial-1.jpg.asset.json";
+import testimonial2 from "@/assets/testimonial-2.jpg.asset.json";
+import testimonial3 from "@/assets/testimonial-3.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.link/spml85";
@@ -384,6 +387,66 @@ function Qualification() {
   );
 }
 
+/* ----------------------------- Testimonials ---------------------------- */
+function Testimonials() {
+  const cards = [
+    {
+      src: testimonial1.url,
+      alt: "Captura de WhatsApp: mensaje contando que abrió su cuenta en Hapi con la guía",
+      caption: "Abrió su cuenta en Hapi · comunidad",
+    },
+    {
+      src: testimonial2.url,
+      alt: "Captura de WhatsApp: mensaje agradeciendo el contenido gratuito y la oportunidad de empezar con Hapi",
+      caption: "Empezó a invertir con Hapi · contenido gratis",
+    },
+    {
+      src: testimonial3.url,
+      alt: "Captura de mensaje: 'gracias a su página hoy comencé el mundo de las inversiones'",
+      caption: "Comenzó a invertir · contenido gratis",
+    },
+  ];
+  return (
+    <section style={{ backgroundColor: "#F0F5F3" }} className="relative py-20">
+      <div className="mx-auto max-w-6xl px-4">
+        <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-brand-emerald md:text-4xl">
+          Esto ya le funcionó a gente como tú
+        </h2>
+        <p className="mt-5 max-w-2xl text-base leading-[1.7] text-brand-neutral-700 md:text-lg">
+          Capturas reales de hondureños que empezaron a invertir con mi
+          contenido y mi guía. Muchos son parte de la comunidad de +900
+          personas que aprende junta.
+        </p>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {cards.map((c) => (
+            <figure
+              key={c.caption}
+              className="rounded-[20px] border border-brand-emerald-border bg-white p-4 md:p-5"
+              style={{ boxShadow: "0 2px 8px rgba(26,107,85,0.06)" }}
+            >
+              <div className="overflow-hidden rounded-[14px] border border-brand-emerald-border bg-white">
+                <img
+                  src={c.src}
+                  alt={c.alt}
+                  loading="lazy"
+                  className="block h-auto w-full"
+                />
+              </div>
+              <figcaption
+                className="mt-4 px-1 text-xs font-bold uppercase tracking-[0.12em]"
+                style={{ color: "#1A6B55" }}
+              >
+                {c.caption}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ------------------------------ Final CTA ------------------------------- */
 function FinalCTA() {
   return (
@@ -559,6 +622,7 @@ function Home() {
         <Wedge />
         <Path />
         <Qualification />
+        <Testimonials />
         <FinalCTA />
       </main>
       <Footer />
