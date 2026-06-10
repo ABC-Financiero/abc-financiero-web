@@ -17,6 +17,7 @@ import testimonial1 from "@/assets/testimonial-1.jpg.asset.json";
 import testimonial2 from "@/assets/testimonial-2.jpg.asset.json";
 import testimonial3 from "@/assets/testimonial-3.jpg.asset.json";
 import { Button } from "@/components/ui/button";
+import { QualificationCall } from "@/components/QualificationCall";
 
 const WHATSAPP_URL = "https://wa.link/spml85";
 const BRAND = "ABC Financiero";
@@ -119,12 +120,17 @@ function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col items-start gap-3">
-            <Button asChild variant="navy" size="xl">
-              <Link to="/guia">
-                Descargar la guía gratis
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button asChild variant="navy" size="xl">
+                <Link to="/guia">
+                  Descargar la guía gratis
+                  <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="ghostGreen" size="xl">
+                <a href="#llamada">Reserva una llamada gratuita</a>
+              </Button>
+            </div>
             <p
               className="max-w-md text-sm"
               style={{ color: "rgba(28,43,39,0.7)" }}
@@ -623,6 +629,7 @@ function Home() {
         <Path />
         <Qualification />
         <Testimonials />
+        <QualificationCall id="llamada" />
         <FinalCTA />
       </main>
       <Footer />
