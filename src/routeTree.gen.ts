@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as MentoriaRouteImport } from './routes/mentoria'
 import { Route as GuiaRouteImport } from './routes/guia'
 import { Route as IndexRouteImport } from './routes/index'
 
+const MentoriaRoute = MentoriaRouteImport.update({
+  id: '/mentoria',
+  path: '/mentoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuiaRoute = GuiaRouteImport.update({
   id: '/guia',
   path: '/guia',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/guia': typeof GuiaRoute
+  '/mentoria': typeof MentoriaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/guia': typeof GuiaRoute
+  '/mentoria': typeof MentoriaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/guia': typeof GuiaRoute
+  '/mentoria': typeof MentoriaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/guia'
+  fullPaths: '/' | '/guia' | '/mentoria'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/guia'
-  id: '__root__' | '/' | '/guia'
+  to: '/' | '/guia' | '/mentoria'
+  id: '__root__' | '/' | '/guia' | '/mentoria'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GuiaRoute: typeof GuiaRoute
+  MentoriaRoute: typeof MentoriaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/mentoria': {
+      id: '/mentoria'
+      path: '/mentoria'
+      fullPath: '/mentoria'
+      preLoaderRoute: typeof MentoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guia': {
       id: '/guia'
       path: '/guia'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GuiaRoute: GuiaRoute,
+  MentoriaRoute: MentoriaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
