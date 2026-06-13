@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MentoriaRouteImport } from './routes/mentoria'
 import { Route as GuiaRouteImport } from './routes/guia'
+import { Route as EbookRouteImport } from './routes/ebook'
+import { Route as CursoRouteImport } from './routes/curso'
 import { Route as IndexRouteImport } from './routes/index'
 
 const MentoriaRoute = MentoriaRouteImport.update({
@@ -23,6 +25,16 @@ const GuiaRoute = GuiaRouteImport.update({
   path: '/guia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EbookRoute = EbookRouteImport.update({
+  id: '/ebook',
+  path: '/ebook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CursoRoute = CursoRouteImport.update({
+  id: '/curso',
+  path: '/curso',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +43,38 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/curso': typeof CursoRoute
+  '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
   '/mentoria': typeof MentoriaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/curso': typeof CursoRoute
+  '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
   '/mentoria': typeof MentoriaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/curso': typeof CursoRoute
+  '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
   '/mentoria': typeof MentoriaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/guia' | '/mentoria'
+  fullPaths: '/' | '/curso' | '/ebook' | '/guia' | '/mentoria'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/guia' | '/mentoria'
-  id: '__root__' | '/' | '/guia' | '/mentoria'
+  to: '/' | '/curso' | '/ebook' | '/guia' | '/mentoria'
+  id: '__root__' | '/' | '/curso' | '/ebook' | '/guia' | '/mentoria'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CursoRoute: typeof CursoRoute
+  EbookRoute: typeof EbookRoute
   GuiaRoute: typeof GuiaRoute
   MentoriaRoute: typeof MentoriaRoute
 }
@@ -75,6 +95,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuiaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ebook': {
+      id: '/ebook'
+      path: '/ebook'
+      fullPath: '/ebook'
+      preLoaderRoute: typeof EbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/curso': {
+      id: '/curso'
+      path: '/curso'
+      fullPath: '/curso'
+      preLoaderRoute: typeof CursoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,9 +121,21 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CursoRoute: CursoRoute,
+  EbookRoute: EbookRoute,
   GuiaRoute: GuiaRoute,
   MentoriaRoute: MentoriaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
