@@ -397,112 +397,6 @@ function FinalCTA() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="relative bg-brand-navy text-white/80">
-      <div
-        className="absolute inset-x-0 top-0 h-px"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, var(--brand-emerald-mid), transparent)",
-        }}
-      />
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        {/* CTA strip */}
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 rounded-[20px] border border-white/10 bg-white/[0.03] p-6 md:flex-row md:items-center md:p-8">
-          <div>
-            <h3 className="text-xl font-bold text-white md:text-2xl">
-              ¿Listo para dar tu primer paso?
-            </h3>
-            <p className="mt-1 text-sm text-white/70">
-              Descarga la guía gratis y empieza a invertir desde Honduras.
-            </p>
-          </div>
-          <Button asChild variant="cta" size="lg">
-            <a href="#form">
-              <ArrowRight className="size-4" /> Descargar guía gratis
-            </a>
-          </Button>
-        </div>
-
-        <div className="grid gap-10 md:grid-cols-12">
-          {/* Brand */}
-          <div className="md:col-span-5">
-            <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-brand-emerald-mid text-white">
-                <Leaf className="size-4" />
-              </span>
-              <span className="text-lg font-extrabold text-white">{BRAND}</span>
-            </div>
-            <p className="mt-4 max-w-sm text-sm leading-[1.7] text-white/65">
-              Educación financiera honesta para hondureños que quieren tomar el control de sus finanzas
-              personales.
-            </p>
-            <div className="mt-5 flex items-center gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
-              >
-                <MessageCircle className="size-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
-              >
-                <Instagram className="size-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="Email"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
-              >
-                <Mail className="size-4" />
-              </a>
-            </div>
-          </div>
-
-          {/* Navegación */}
-          <div className="md:col-span-3">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">
-              Navegación
-            </p>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><a href="/" className="text-white/80 hover:text-white">Inicio</a></li>
-              <li><a href="#form" className="text-white/80 hover:text-white">Descargar guía</a></li>
-              <li><a href="/" className="text-white/80 hover:text-white">La Mentoría</a></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="md:col-span-4">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">
-              Legal
-            </p>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><a href="#" className="text-white/80 hover:text-white">Política de Privacidad</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white">Términos y Condiciones</a></li>
-            </ul>
-            <p className="mt-5 text-[11px] leading-[1.6] text-white/50">
-              {BRAND} es una plataforma de educación financiera. No somos asesores financieros
-              regulados por la CNBS ni captamos fondos del público. Las inversiones en la Bolsa
-              de Valores conllevan riesgos. El desempeño pasado no garantiza resultados futuros.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row">
-          <p>© {new Date().getFullYear()} {BRAND}. Todos los derechos reservados.</p>
-          <p>Hecho desde Honduras 🇭🇳</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 function GuiaPage() {
   return (
     <div id="top" className="min-h-screen bg-white">
@@ -514,7 +408,7 @@ function GuiaPage() {
         <MentorshipCard />
         <FinalCTA />
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }
