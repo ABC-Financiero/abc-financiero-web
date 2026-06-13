@@ -24,6 +24,9 @@ export const Route = createFileRoute("/curso")({
   component: CursoPage,
 });
 
+const COURSE_USD = 37;
+const COURSE_HOTMART = "https://pay.hotmart.com/E106105146G?checkoutMode=2";
+
 function Cover() {
   return (
     <div
@@ -53,8 +56,18 @@ function Cover() {
   );
 }
 
+function PriceBlock({ lps }: { lps: string }) {
+  return (
+    <div>
+      <div style={{ color: "#1A6B55", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{lps}</div>
+      <div style={{ color: "#8BA89F", fontSize: 12, marginTop: 4 }}>pago único</div>
+    </div>
+  );
+}
+
 function Hero() {
   const { rate } = useUsdHnlRate();
+  const lps = formatLempiras(COURSE_USD, rate);
   const bonusBadge: React.CSSProperties = {
     background: "#E8F5F0",
     color: "#1A6B55",
@@ -81,20 +94,13 @@ function Hero() {
           </h1>
           <p className="mt-5 text-lg" style={{ color: "#3D5A52", lineHeight: 1.6 }}>
             Aprende paso a paso cómo construir un portafolio de inversión
-            adaptado a ti desde Honduras — sin experiencia previa, a tu propio
-            ritmo.
-          </p>
-          <p className="mt-6 text-2xl font-extrabold" style={{ color: "#1A6B55" }}>
-            {formatLempiras(29, rate)}{" "}
-            <span style={{ fontSize: 14, color: "#3D5A52", fontWeight: 500 }}>
-              · pago único (≈ $29)
-            </span>
+            adaptado a ti desde Honduras — sin experiencia previa, a tu propio ritmo.
           </p>
           <div className="mt-7">
-            <HotmartButton
-              href="https://pay.hotmart.com/E106105146G?checkoutMode=2"
-              label={`Comprar ahora — ${formatLempiras(29, rate)}`}
-            />
+            <PriceBlock lps={lps} />
+          </div>
+          <div className="mt-6">
+            <HotmartButton href={COURSE_HOTMART} label="Comprar ahora" />
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
             <span style={bonusBadge}>✓ Acceso a comunidad WhatsApp</span>
@@ -144,7 +150,7 @@ function ForWhom() {
             >
               <span
                 className="inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white"
-                style={{ background: i % 2 === 0 ? "#1A6B55" : "#6B4FC8" }}
+                style={{ background: "#6B4FC8" }}
               >
                 {i + 1}
               </span>
@@ -196,7 +202,7 @@ function Modules() {
             >
               <span
                 className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-sm font-extrabold text-white"
-                style={{ background: i % 2 === 0 ? "#1A6B55" : "#6B4FC8" }}
+                style={{ background: "#6B4FC8" }}
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -224,17 +230,17 @@ function Transformation() {
     "Contar con un plan de inversión que puedas sostener en el tiempo",
   ];
   return (
-    <section className="bg-white py-20">
+    <section style={{ background: "#EEEDFE" }} className="py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#1A6B55" }}>
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#3C3489" }}>
           Al terminar el curso vas a...
         </h2>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {items.map((t) => (
             <div
               key={t}
-              className="flex items-start gap-4 rounded-[16px] p-6"
-              style={{ background: "#FAFBF9", border: "1px solid #C5E4DA" }}
+              className="flex items-start gap-4 rounded-[16px] bg-white p-6"
+              style={{ border: "1px solid #AFA9EC" }}
             >
               <span
                 className="grid h-10 w-10 shrink-0 place-items-center rounded-full"
@@ -272,9 +278,9 @@ function Bonuses() {
     },
   ];
   return (
-    <section style={{ background: "#EEEDFE" }} className="py-20">
+    <section className="bg-white py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#3C3489" }}>
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#1A6B55" }}>
           Además, al comprar el curso recibes:
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -282,13 +288,11 @@ function Bonuses() {
             <div
               key={it.title}
               className="card-hover rounded-[20px] bg-white p-7"
-              style={{ border: "1px solid #AFA9EC" }}
+              style={{ border: "1px solid #C5E4DA" }}
             >
               <span
                 className="grid h-12 w-12 place-items-center rounded-2xl text-white"
-                style={{
-                  background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)",
-                }}
+                style={{ background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)" }}
               >
                 <it.icon className="size-5" strokeWidth={1.8} />
               </span>
@@ -314,7 +318,7 @@ function Objections() {
     },
     {
       q: '"No tengo mucho dinero para invertir"',
-      a: "En el broker que usamos puedes empezar con L250 ($10). El curso te enseña a construir con lo que tienes hoy, no es necesario miles de lempiras.",
+      a: "En el broker que usamos puedes empezar con L250. El curso te enseña a construir con lo que tienes hoy, no es necesario miles de lempiras.",
     },
     {
       q: '"¿Y si el mercado cae?"',
@@ -326,7 +330,7 @@ function Objections() {
     },
   ];
   return (
-    <section className="bg-white py-20">
+    <section style={{ background: "#F0F5F3" }} className="py-20">
       <div className="mx-auto max-w-6xl px-4">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#1A6B55" }}>
           Lo que quizás estás pensando...
@@ -352,58 +356,9 @@ function Objections() {
   );
 }
 
-function Testimonials() {
-  const items = [
-    {
-      quote: "El curso me dio claridad sobre qué hacer con mi dinero. Ya tengo mi portafolio funcionando.",
-      name: "Estudiante",
-      age: "Honduras",
-      initials: "E1",
-    },
-    {
-      quote: "Aprendí desde cero y ahora invierto con confianza. La comunidad ayuda muchísimo.",
-      name: "Estudiante",
-      age: "Honduras",
-      initials: "E2",
-    },
-  ];
-  return (
-    <section style={{ background: "#F0F5F3" }} className="py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#1A6B55" }}>
-          Lo que dicen quienes ya tomaron el curso
-        </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {items.map((t) => (
-            <div
-              key={t.initials}
-              className="rounded-[20px] p-7"
-              style={{ background: "#FFFFFF", border: "1px solid #C5E4DA" }}
-            >
-              <p className="text-[16px] leading-[1.7]" style={{ color: "#1C2B27" }}>
-                “{t.quote}”
-              </p>
-              <div className="mt-5 flex items-center gap-3">
-                <span
-                  className="grid h-10 w-10 place-items-center rounded-full text-sm font-bold text-white"
-                  style={{ background: "#6B4FC8" }}
-                >
-                  {t.initials}
-                </span>
-                <span className="text-sm font-semibold" style={{ color: "#1A6B55" }}>
-                  {t.name} · {t.age}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FinalCTA() {
   const { rate } = useUsdHnlRate();
+  const lps = formatLempiras(COURSE_USD, rate);
   return (
     <section
       className="py-20 text-center text-white"
@@ -413,16 +368,18 @@ function FinalCTA() {
         <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
           Empieza hoy a construir tu portafolio.
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-base md:text-lg" style={{ color: "rgba(255,255,255,0.9)" }}>
-          Un pago único de {formatLempiras(29, rate)}. Acceso de por vida.
-          Comunidad incluida. Llamada personal incluida.
+        <p
+          className="mx-auto mt-4 max-w-xl text-base md:text-lg"
+          style={{ color: "rgba(255,255,255,0.9)" }}
+        >
+          Acceso de por vida. Comunidad incluida. Llamada personal incluida.
         </p>
-        <div className="mx-auto mt-8 w-full max-w-[400px]">
-          <HotmartButton
-            href="https://pay.hotmart.com/E106105146G?checkoutMode=2"
-            label="Comprar ahora"
-            fullWidth
-          />
+        <div className="mt-6">
+          <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{lps}</div>
+          <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, marginTop: 4 }}>pago único</div>
+        </div>
+        <div className="mx-auto mt-6 w-full max-w-[400px]">
+          <HotmartButton href={COURSE_HOTMART} label="Comprar ahora" fullWidth />
         </div>
         <div className="mt-4">
           <Link
@@ -450,7 +407,6 @@ function CursoPage() {
         <Transformation />
         <Bonuses />
         <Objections />
-        <Testimonials />
         <FinalCTA />
       </main>
       <SiteFooter />

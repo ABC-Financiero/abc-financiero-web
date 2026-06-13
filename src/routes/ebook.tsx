@@ -3,7 +3,6 @@ import { CircleCheck } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HotmartButton } from "@/components/HotmartButton";
-import { useUsdHnlRate, formatLempiras } from "@/lib/useExchangeRate";
 
 export const Route = createFileRoute("/ebook")({
   head: () => ({
@@ -56,7 +55,6 @@ function EbookCover() {
 }
 
 function Hero() {
-  const { rate } = useUsdHnlRate();
   return (
     <section style={{ background: "#E8F5F0" }} className="py-20 md:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
@@ -77,16 +75,16 @@ function Hero() {
             La guía completa para entender cómo funciona la bolsa de valores y
             sentirte listo para hacer tu primera inversión desde Honduras.
           </p>
-          <p className="mt-6 text-2xl font-extrabold" style={{ color: "#1A6B55" }}>
-            {formatLempiras(9.99, rate)}{" "}
-            <span style={{ fontSize: 14, color: "#3D5A52", fontWeight: 500 }}>
-              · pago único (≈ $9.99)
-            </span>
-          </p>
           <div className="mt-7">
+            <div style={{ color: "#1A6B55", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>
+              L270
+            </div>
+            <div style={{ color: "#8BA89F", fontSize: 12, marginTop: 4 }}>pago único</div>
+          </div>
+          <div className="mt-6">
             <HotmartButton
               href="https://pay.hotmart.com/D103514595T?checkoutMode=2"
-              label={`Comprar ahora — ${formatLempiras(9.99, rate)}`}
+              label="Comprar ahora"
             />
           </div>
         </div>
@@ -195,7 +193,7 @@ function ForWhom() {
             >
               <span
                 className="inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white"
-                style={{ background: i % 2 === 0 ? "#1A6B55" : "#6B4FC8" }}
+                style={{ background: "#6B4FC8" }}
               >
                 {i + 1}
               </span>
@@ -250,50 +248,7 @@ function Transformation() {
   );
 }
 
-function Objections() {
-  const items = [
-    {
-      q: '"No tengo suficiente dinero"',
-      a: "En el broker que uso, puedes empezar a invertir desde L250 ($10). El e-book te muestra cómo hacerlo desde Honduras con poco capital.",
-    },
-    {
-      q: '"No entiendo nada de finanzas"',
-      a: "Está escrito para principiantes absolutos. No tiene jerga técnica ni temas complejos.",
-    },
-    {
-      q: '"¿Y si pierdo mi dinero?"',
-      a: "El libro dedica un capítulo completo a entender y manejar el riesgo. Invertir con miedo es peor que no invertir.",
-    },
-  ];
-  return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#1A6B55" }}>
-          Lo que quizás estás pensando...
-        </h2>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {items.map((it) => (
-            <div
-              key={it.q}
-              className="rounded-[12px] bg-white p-5"
-              style={{ borderLeft: "3px solid #6B4FC8", border: "1px solid #C5E4DA", borderLeftWidth: 3 }}
-            >
-              <p className="text-base font-bold" style={{ color: "#1C2B27" }}>
-                {it.q}
-              </p>
-              <p className="mt-2 text-sm leading-[1.65]" style={{ color: "#3D5A52" }}>
-                → {it.a}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FinalCTA() {
-  const { rate } = useUsdHnlRate();
   return (
     <section
       className="py-20 text-center text-white"
@@ -303,14 +258,20 @@ function FinalCTA() {
         <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
           Tu primera inversión empieza con entender.
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-base md:text-lg" style={{ color: "rgba(255,255,255,0.9)" }}>
-          18 páginas que pueden cambiar cómo ves tu dinero. {formatLempiras(9.99, rate)} —
-          un solo pago y acceso para siempre.
+        <p
+          className="mx-auto mt-4 max-w-xl text-base md:text-lg"
+          style={{ color: "rgba(255,255,255,0.9)" }}
+        >
+          18 páginas que pueden cambiar cómo ves tu dinero. Un solo pago y acceso para siempre.
         </p>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-6">
+          <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>L270</div>
+          <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, marginTop: 4 }}>pago único</div>
+        </div>
+        <div className="mt-6 flex justify-center">
           <HotmartButton
             href="https://pay.hotmart.com/D103514595T?checkoutMode=2"
-            label={`Comprar ahora — ${formatLempiras(9.99, rate)}`}
+            label="Comprar ahora"
           />
         </div>
       </div>
@@ -327,7 +288,6 @@ function EbookPage() {
         <WhatYouLearn />
         <ForWhom />
         <Transformation />
-        <Objections />
         <FinalCTA />
       </main>
       <SiteFooter />
