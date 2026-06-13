@@ -13,16 +13,31 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header
-      className="sticky top-0 z-50 w-full bg-white"
-      style={{ borderBottom: "1px solid #C5E4DA" }}
+      className="sticky top-0 z-50 w-full"
+      style={{
+        background: "rgba(255,255,255,0.85)",
+        backdropFilter: "saturate(180%) blur(12px)",
+        WebkitBackdropFilter: "saturate(180%) blur(12px)",
+        borderBottom: "1px solid rgba(197,228,218,0.6)",
+      }}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center gap-2">
+          <span
+            className="grid h-7 w-7 place-items-center rounded-full text-white"
+            style={{
+              background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)",
+              fontSize: 12,
+              fontWeight: 800,
+            }}
+          >
+            A
+          </span>
           <span
             style={{
               color: "#1A6B55",
               fontWeight: 800,
-              fontSize: 18,
+              fontSize: 17,
               letterSpacing: "-0.02em",
             }}
           >
@@ -30,42 +45,31 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden md:flex items-center gap-8">
           {LINKS.map((l) => (
             <Link
               key={l.label}
               to={l.to}
               hash={l.hash}
-              className="text-sm font-semibold text-brand-neutral-700 hover:text-brand-emerald transition-colors"
+              className="text-sm font-semibold transition-colors"
+              style={{ color: "#3D5A52" }}
+              activeProps={{ style: { color: "#1A6B55" } }}
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Link
-            to="/mentoria"
-            hash="llamada"
-            className="inline-flex items-center justify-center rounded-full text-white transition-colors hover:opacity-95"
-            style={{
-              background: "#2E9B7A",
-              fontWeight: 700,
-              fontSize: 13,
-              padding: "8px 18px",
-            }}
-          >
-            Reservar llamada gratuita
-          </Link>
-        </div>
-
         <button
           aria-label="Menú"
-          className="md:hidden rounded-md p-2 text-brand-emerald"
+          className="md:hidden rounded-md p-2"
+          style={{ color: "#1A6B55" }}
           onClick={() => setOpen(!open)}
         >
           {open ? <X /> : <Menu />}
         </button>
+
+        <div className="hidden md:block" style={{ width: 90 }} aria-hidden />
       </div>
 
       {open && (
@@ -77,25 +81,12 @@ export function SiteHeader() {
                 to={l.to}
                 hash={l.hash}
                 onClick={() => setOpen(false)}
-                className="text-sm font-semibold text-brand-neutral-700"
+                className="text-sm font-semibold"
+                style={{ color: "#3D5A52" }}
               >
                 {l.label}
               </Link>
             ))}
-            <Link
-              to="/mentoria"
-              hash="llamada"
-              onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center rounded-full text-white"
-              style={{
-                background: "#2E9B7A",
-                fontWeight: 700,
-                fontSize: 13,
-                padding: "10px 18px",
-              }}
-            >
-              Reservar llamada gratuita
-            </Link>
           </div>
         </div>
       )}
