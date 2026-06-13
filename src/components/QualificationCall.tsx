@@ -99,7 +99,7 @@ function CalEmbed() {
   }, []);
 
   return (
-    <div style={{ width: "100%", maxWidth: "100%", overflow: "hidden" }}>
+    <div style={{ width: "100%", maxWidth: "100%", overflow: "visible", boxSizing: "border-box" }}>
       <p style={{ fontSize: 14, color: "#3D5A52", marginBottom: 16 }}>
         Elige el día y horario que mejor te funcione. La llamada dura 15 minutos.
       </p>
@@ -107,12 +107,13 @@ function CalEmbed() {
         #cal-booking-widget {
           width: 100%;
           max-width: 100%;
-          height: 600px;
-          overflow: hidden;
+          min-height: 700px;
           border-radius: 12px;
+          overflow: visible;
+          box-sizing: border-box;
         }
         @media (max-width: 768px) {
-          #cal-booking-widget { height: 750px; }
+          #cal-booking-widget { min-height: 900px; }
         }
       `}</style>
       <div ref={containerRef} id="cal-booking-widget" />
@@ -198,25 +199,27 @@ export function QualificationCall({ id = "llamada" }: { id?: string }) {
   return (
     <section
       id={id}
-      style={{ background: "#F0F5F3", overflow: "hidden", boxSizing: "border-box" }}
+      style={{ background: "#F0F5F3", overflow: "visible", boxSizing: "border-box" }}
       className="py-16 md:py-24"
     >
       <div className="mx-auto max-w-3xl px-4">
-        <div className="mb-8 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-brand-navy md:text-4xl">
-            Reserva tu llamada gratuita de 15 minutos
-          </h2>
-          <p className="mt-3 text-base text-brand-neutral-700">
-            Cuéntanos un poco sobre ti y elige el horario que mejor te funcione.
-          </p>
-        </div>
+        {!qualified && (
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight text-brand-navy md:text-4xl">
+              Reserva tu llamada gratuita de 15 minutos
+            </h2>
+            <p className="mt-3 text-base text-brand-neutral-700">
+              Cuéntanos un poco sobre ti y elige el horario que mejor te funcione.
+            </p>
+          </div>
+        )}
 
         <div
           className="rounded-[20px] bg-white p-6 md:p-8"
           style={{
             border: "1px solid #C5E4DA",
             boxShadow: "0 2px 12px rgba(26,107,85,0.08)",
-            overflow: "hidden",
+            overflow: "visible",
             boxSizing: "border-box",
           }}
         >
