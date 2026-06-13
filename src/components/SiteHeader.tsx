@@ -5,55 +5,63 @@ import { Menu, X } from "lucide-react";
 const LINKS = [
   { label: "Inicio", to: "/" as const, hash: undefined },
   { label: "Soluciones", to: "/" as const, hash: "soluciones" },
-  { label: "Nosotros", to: "/" as const, hash: "nosotros" },
-  { label: "Contacto", to: "/" as const, hash: "contacto" },
+  { label: "Mentoría", to: "/mentoria" as const, hash: undefined },
+  { label: "Contacto", to: "/contacto" as const, hash: undefined },
 ];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+
   return (
-    <header
-      className="sticky top-0 z-50 w-full"
-      style={{
-        background: "rgba(255,255,255,0.85)",
-        backdropFilter: "saturate(180%) blur(12px)",
-        WebkitBackdropFilter: "saturate(180%) blur(12px)",
-        borderBottom: "1px solid rgba(197,228,218,0.6)",
-      }}
-    >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span
-            className="grid h-7 w-7 place-items-center rounded-full text-white"
-            style={{
-              background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)",
-              fontSize: 12,
-              fontWeight: 800,
-            }}
-          >
-            A
-          </span>
+    <>
+      {/* Spacer so fixed header doesn't overlap content */}
+      <div aria-hidden style={{ height: 88 }} />
+
+      <header
+        style={{
+          position: "fixed",
+          top: 16,
+          left: 0,
+          right: 0,
+          zIndex: 100,
+          margin: "0 auto",
+          maxWidth: 780,
+          width: "calc(100% - 24px)",
+          background: "#FFFFFF",
+          borderRadius: 999,
+          border: "1px solid #C5E4DA",
+          boxShadow: "0 4px 24px rgba(26,107,85,0.10)",
+          padding: "10px 24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 16,
+        }}
+      >
+        <Link to="/" className="flex items-center gap-2 shrink-0">
           <span
             style={{
               color: "#1A6B55",
               fontWeight: 800,
-              fontSize: 17,
+              fontSize: 16,
               letterSpacing: "-0.02em",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
             }}
           >
             ABC Financiero
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {LINKS.map((l) => (
             <Link
               key={l.label}
               to={l.to}
               hash={l.hash}
-              className="text-sm font-semibold transition-colors"
-              style={{ color: "#3D5A52" }}
-              activeProps={{ style: { color: "#1A6B55" } }}
+              className="transition-colors"
+              style={{ color: "#3D5A52", fontSize: 14, fontWeight: 600 }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#1A6B55")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#3D5A52")}
             >
               {l.label}
             </Link>
@@ -62,27 +70,43 @@ export function SiteHeader() {
 
         <button
           aria-label="Menú"
-          className="md:hidden rounded-md p-2"
+          className="md:hidden rounded-md p-1"
           style={{ color: "#1A6B55" }}
           onClick={() => setOpen(!open)}
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
-
-        <div className="hidden md:block" style={{ width: 90 }} aria-hidden />
-      </div>
+      </header>
 
       {open && (
-        <div className="border-t bg-white md:hidden" style={{ borderColor: "#C5E4DA" }}>
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4">
+        <div
+          className="md:hidden"
+          style={{
+            position: "fixed",
+            top: 76,
+            left: 12,
+            right: 12,
+            zIndex: 99,
+            background: "#FFFFFF",
+            borderRadius: 16,
+            border: "1px solid #C5E4DA",
+            boxShadow: "0 4px 24px rgba(26,107,85,0.10)",
+            padding: "12px 18px",
+          }}
+        >
+          <div className="flex flex-col gap-2">
             {LINKS.map((l) => (
               <Link
                 key={l.label}
                 to={l.to}
                 hash={l.hash}
                 onClick={() => setOpen(false)}
-                className="text-sm font-semibold"
-                style={{ color: "#3D5A52" }}
+                style={{
+                  color: "#3D5A52",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  padding: "8px 0",
+                }}
               >
                 {l.label}
               </Link>
@@ -90,6 +114,6 @@ export function SiteHeader() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

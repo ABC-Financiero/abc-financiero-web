@@ -13,6 +13,7 @@ import { Route as MentoriaRouteImport } from './routes/mentoria'
 import { Route as GuiaRouteImport } from './routes/guia'
 import { Route as EbookRouteImport } from './routes/ebook'
 import { Route as CursoRouteImport } from './routes/curso'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
 
 const MentoriaRoute = MentoriaRouteImport.update({
@@ -35,6 +36,11 @@ const CursoRoute = CursoRouteImport.update({
   path: '/curso',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +49,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/curso': typeof CursoRoute
   '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/curso': typeof CursoRoute
   '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/curso': typeof CursoRoute
   '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
@@ -65,14 +74,22 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/curso' | '/ebook' | '/guia' | '/mentoria'
+  fullPaths: '/' | '/contacto' | '/curso' | '/ebook' | '/guia' | '/mentoria'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/curso' | '/ebook' | '/guia' | '/mentoria'
-  id: '__root__' | '/' | '/curso' | '/ebook' | '/guia' | '/mentoria'
+  to: '/' | '/contacto' | '/curso' | '/ebook' | '/guia' | '/mentoria'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/curso'
+    | '/ebook'
+    | '/guia'
+    | '/mentoria'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
   CursoRoute: typeof CursoRoute
   EbookRoute: typeof EbookRoute
   GuiaRoute: typeof GuiaRoute
@@ -109,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CursoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -121,6 +145,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
   CursoRoute: CursoRoute,
   EbookRoute: EbookRoute,
   GuiaRoute: GuiaRoute,

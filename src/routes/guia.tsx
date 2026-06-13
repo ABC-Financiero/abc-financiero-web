@@ -1,16 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
-  Menu,
-  X,
   Leaf,
   Check,
   ArrowRight,
   Sparkles,
-  MessageCircle,
-  Mail,
-  Instagram,
   CheckCircle2 as IconCircleCheck,
   Landmark as IconBuildingBank,
   UserPlus as IconUserPlus,
@@ -19,11 +14,13 @@ import {
   ShoppingCart as IconShoppingCart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { subscribeToBrevoList } from "@/lib/brevo.functions";
 
 const BRAND = "ABC Financiero";
 const BREVO_LIST_ID = 12;
-const WHATSAPP_URL = "https://wa.link/spml85";
+
 
 export const Route = createFileRoute("/guia")({
   head: () => ({
@@ -47,68 +44,9 @@ export const Route = createFileRoute("/guia")({
 });
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
-  const links = [
-    { href: "/", label: "Inicio" },
-    { href: "/", label: "Mentoría" },
-  ];
-  return (
-    <header className="sticky top-0 z-50 w-full border-b border-brand-emerald-border bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-brand-emerald text-white">
-            <Leaf className="size-4" />
-          </span>
-          <span className="text-lg font-extrabold tracking-tight text-brand-emerald">
-            {BRAND}
-          </span>
-        </Link>
-        <nav className="hidden items-center gap-7 md:flex">
-          {links.map((l, i) => (
-            <a
-              key={i}
-              href={l.href}
-              className="text-sm font-semibold text-brand-emerald transition hover:text-brand-emerald-mid"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <div className="hidden md:flex">
-          <Button asChild variant="navy" size="lg">
-            <a href="/">Agendar sesión</a>
-          </Button>
-        </div>
-        <button
-          aria-label="Menú"
-          className="md:hidden rounded-md p-2 text-brand-emerald"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X /> : <Menu />}
-        </button>
-      </div>
-      {open && (
-        <div className="border-t border-brand-emerald-border bg-white md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4">
-            {links.map((l, i) => (
-              <a
-                key={i}
-                href={l.href}
-                className="text-sm font-semibold text-brand-emerald"
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </a>
-            ))}
-            <Button asChild variant="navy" size="lg">
-              <a href="/">Agendar sesión</a>
-            </Button>
-          </div>
-        </div>
-      )}
-    </header>
-  );
+  return <SiteHeader />;
 }
+
 
 function LeadForm() {
   const [name, setName] = useState("");
@@ -133,7 +71,7 @@ function LeadForm() {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-brand-emerald-border bg-white p-8 text-center shadow-sm">
-        <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-brand-emerald-light text-brand-emerald">
+        <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full " style={{background:"#EEEDFE",color:"#6B4FC8"}}>
           <Check className="size-7" />
         </div>
         <h3 className="text-xl font-bold text-brand-navy">¡Listo!</h3>
@@ -226,7 +164,7 @@ function Hero() {
           <ul className="mt-7 space-y-3">
             {bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <IconCircleCheck className="mt-0.5 size-6 shrink-0 text-brand-emerald-mid" />
+                <IconCircleCheck className="mt-0.5 size-6 shrink-0 " style={{color:"#6B4FC8"}} />
                 <span className="text-brand-neutral-700">{b}</span>
               </li>
             ))}
@@ -285,7 +223,7 @@ function WhatYouLearn() {
               className="rounded-2xl border border-brand-emerald-border bg-white p-7 transition hover:shadow-md"
               style={{ borderRadius: 16 }}
             >
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-emerald-light text-brand-emerald">
+              <div className="grid h-12 w-12 place-items-center rounded-xl " style={{background:"#EEEDFE",color:"#6B4FC8"}}>
                 <it.icon className="size-6" />
               </div>
               <h3 className="mt-5 text-lg font-bold text-brand-navy">{it.title}</h3>
@@ -378,7 +316,7 @@ function MentorshipCard() {
           <ul className="mt-6 space-y-3">
             {bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <IconCircleCheck className="mt-0.5 size-5 shrink-0 text-brand-emerald-mid" />
+                <IconCircleCheck className="mt-0.5 size-5 shrink-0 " style={{color:"#6B4FC8"}} />
                 <span className="text-brand-neutral-700">{b}</span>
               </li>
             ))}
@@ -459,112 +397,6 @@ function FinalCTA() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="relative bg-brand-navy text-white/80">
-      <div
-        className="absolute inset-x-0 top-0 h-px"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, var(--brand-emerald-mid), transparent)",
-        }}
-      />
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        {/* CTA strip */}
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 rounded-[20px] border border-white/10 bg-white/[0.03] p-6 md:flex-row md:items-center md:p-8">
-          <div>
-            <h3 className="text-xl font-bold text-white md:text-2xl">
-              ¿Listo para dar tu primer paso?
-            </h3>
-            <p className="mt-1 text-sm text-white/70">
-              Descarga la guía gratis y empieza a invertir desde Honduras.
-            </p>
-          </div>
-          <Button asChild variant="cta" size="lg">
-            <a href="#form">
-              <ArrowRight className="size-4" /> Descargar guía gratis
-            </a>
-          </Button>
-        </div>
-
-        <div className="grid gap-10 md:grid-cols-12">
-          {/* Brand */}
-          <div className="md:col-span-5">
-            <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-brand-emerald-mid text-white">
-                <Leaf className="size-4" />
-              </span>
-              <span className="text-lg font-extrabold text-white">{BRAND}</span>
-            </div>
-            <p className="mt-4 max-w-sm text-sm leading-[1.7] text-white/65">
-              Educación financiera honesta para hondureños que quieren tomar el control de sus finanzas
-              personales.
-            </p>
-            <div className="mt-5 flex items-center gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
-              >
-                <MessageCircle className="size-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
-              >
-                <Instagram className="size-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="Email"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-brand-emerald-mid hover:border-brand-emerald-mid"
-              >
-                <Mail className="size-4" />
-              </a>
-            </div>
-          </div>
-
-          {/* Navegación */}
-          <div className="md:col-span-3">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">
-              Navegación
-            </p>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><a href="/" className="text-white/80 hover:text-white">Inicio</a></li>
-              <li><a href="#form" className="text-white/80 hover:text-white">Descargar guía</a></li>
-              <li><a href="/" className="text-white/80 hover:text-white">La Mentoría</a></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="md:col-span-4">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/50">
-              Legal
-            </p>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><a href="#" className="text-white/80 hover:text-white">Política de Privacidad</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white">Términos y Condiciones</a></li>
-            </ul>
-            <p className="mt-5 text-[11px] leading-[1.6] text-white/50">
-              {BRAND} es una plataforma de educación financiera. No somos asesores financieros
-              regulados por la CNBS ni captamos fondos del público. Las inversiones en la Bolsa
-              de Valores conllevan riesgos. El desempeño pasado no garantiza resultados futuros.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row">
-          <p>© {new Date().getFullYear()} {BRAND}. Todos los derechos reservados.</p>
-          <p>Hecho desde Honduras 🇭🇳</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 function GuiaPage() {
   return (
     <div id="top" className="min-h-screen bg-white">
@@ -576,7 +408,7 @@ function GuiaPage() {
         <MentorshipCard />
         <FinalCTA />
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

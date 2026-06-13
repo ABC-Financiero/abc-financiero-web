@@ -19,10 +19,11 @@ const Q1_OPTIONS: { value: Q1; label: string }[] = [
 
 const Q2_OPTIONS: { value: Q2; label: string }[] = [
   { value: "nada", label: "Nada por ahora" },
-  { value: "menos-50", label: "Menos de $50" },
-  { value: "50-150", label: "$50 – $150" },
-  { value: "mas-150", label: "Más de $150" },
+  { value: "menos-50", label: "Menos de L1,000" },
+  { value: "50-150", label: "L1,000 – L4,000" },
+  { value: "mas-150", label: "Más de L4,000" },
 ];
+
 
 function OptionCard({
   selected,
