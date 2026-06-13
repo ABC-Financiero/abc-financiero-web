@@ -44,68 +44,9 @@ export const Route = createFileRoute("/guia")({
 });
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
-  const links = [
-    { href: "/", label: "Inicio" },
-    { href: "/", label: "Mentoría" },
-  ];
-  return (
-    <header className="sticky top-0 z-50 w-full border-b border-brand-emerald-border bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-brand-emerald text-white">
-            <Leaf className="size-4" />
-          </span>
-          <span className="text-lg font-extrabold tracking-tight text-brand-emerald">
-            {BRAND}
-          </span>
-        </Link>
-        <nav className="hidden items-center gap-7 md:flex">
-          {links.map((l, i) => (
-            <a
-              key={i}
-              href={l.href}
-              className="text-sm font-semibold text-brand-emerald transition hover:text-brand-emerald-mid"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <div className="hidden md:flex">
-          <Button asChild variant="navy" size="lg">
-            <a href="/">Agendar sesión</a>
-          </Button>
-        </div>
-        <button
-          aria-label="Menú"
-          className="md:hidden rounded-md p-2 text-brand-emerald"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X /> : <Menu />}
-        </button>
-      </div>
-      {open && (
-        <div className="border-t border-brand-emerald-border bg-white md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4">
-            {links.map((l, i) => (
-              <a
-                key={i}
-                href={l.href}
-                className="text-sm font-semibold text-brand-emerald"
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </a>
-            ))}
-            <Button asChild variant="navy" size="lg">
-              <a href="/">Agendar sesión</a>
-            </Button>
-          </div>
-        </div>
-      )}
-    </header>
-  );
+  return <SiteHeader />;
 }
+
 
 function LeadForm() {
   const [name, setName] = useState("");
