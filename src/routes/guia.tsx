@@ -1,16 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
-  Menu,
-  X,
   Leaf,
   Check,
   ArrowRight,
   Sparkles,
-  MessageCircle,
-  Mail,
-  Instagram,
   CheckCircle2 as IconCircleCheck,
   Landmark as IconBuildingBank,
   UserPlus as IconUserPlus,
@@ -19,11 +14,13 @@ import {
   ShoppingCart as IconShoppingCart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { subscribeToBrevoList } from "@/lib/brevo.functions";
 
 const BRAND = "ABC Financiero";
 const BREVO_LIST_ID = 12;
-const WHATSAPP_URL = "https://wa.link/spml85";
+
 
 export const Route = createFileRoute("/guia")({
   head: () => ({
