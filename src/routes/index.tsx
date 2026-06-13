@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { HotmartButton } from "@/components/HotmartButton";
 import { useUsdHnlRate, formatLempiras } from "@/lib/useExchangeRate";
 
 export const Route = createFileRoute("/")({

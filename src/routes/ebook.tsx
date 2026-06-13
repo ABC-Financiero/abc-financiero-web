@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CircleCheck, ArrowRight } from "lucide-react";
+import { CircleCheck } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HotmartButton } from "@/components/HotmartButton";
