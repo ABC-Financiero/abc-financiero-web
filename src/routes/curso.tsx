@@ -450,11 +450,17 @@ function CursoPage() {
       <SiteHeader />
       <main>
         <Hero />
+        <SectionDivider />
         <ForWhom />
+        <SectionDivider />
         <Modules />
+        <SectionDivider />
         <Transformation />
+        <SectionDivider />
         <Bonuses />
+        <SectionDivider />
         <Objections />
+        <SectionDivider />
         <FinalCTA />
       </main>
       <SiteFooter />
