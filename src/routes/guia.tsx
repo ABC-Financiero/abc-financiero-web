@@ -373,11 +373,9 @@ function MentorshipCard() {
             ))}
           </ul>
           <div className="mt-8">
-            <Button asChild variant="navy" size="xl" className="w-full sm:w-auto">
-              <a href="/">
-                Me interesa <ArrowRight className="size-4" />
-              </a>
-            </Button>
+            <a href="/mentoria" className="btn-ghost text-sm">
+              Conocer la mentoría <ArrowRight className="size-4" />
+            </a>
           </div>
         </div>
       </div>
