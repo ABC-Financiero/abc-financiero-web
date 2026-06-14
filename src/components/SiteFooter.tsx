@@ -82,17 +82,6 @@ export function SiteFooter() {
               <MessageCircle className="size-4" style={{ color: "#FFFFFF" }} />
               +504 8732-8488
             </a>
-            </a>
-            <a
-              href="https://wa.me/50487328488"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-              style={{ ...linkStyle, color: "#FFFFFF" }}
-            >
-              <MessageCircle className="size-4" style={{ color: "#6B4FC8" }} />
-              +504 8732-8488
-            </a>
           </div>
         </div>
 
