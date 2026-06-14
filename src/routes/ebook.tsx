@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SectionDivider } from "@/components/PageHero";
 import { HotmartButton } from "@/components/HotmartButton";
 import ebookCover from "@/assets/ebook-cover.png.asset.json";
 
@@ -50,30 +51,75 @@ function EbookCover() {
 
 function Hero() {
   return (
-    <section style={{ background: "#E8F5F0" }} className="py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
+    <section
+      className="relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(160deg, #0A1F1A 0%, #0F3D33 55%, #133D2F 100%)",
+      }}
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{
+          top: "-20%",
+          right: "-10%",
+          width: 520,
+          height: 520,
+          background:
+            "radial-gradient(circle, rgba(46,155,122,0.30), transparent 65%)",
+          filter: "blur(20px)",
+        }}
+      />
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2 md:items-center md:py-28">
         <div>
           <span
-            className="inline-block rounded-full px-3 py-1"
-            style={{ background: "#EEEDFE", color: "#3C3489", fontSize: 11, fontWeight: 700 }}
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1"
+            style={{
+              background: "rgba(255,255,255,0.08)",
+              color: "#A7E3CE",
+              border: "1px solid rgba(167,227,206,0.25)",
+              fontSize: 11,
+              fontWeight: 700,
+            }}
           >
-            E-book digital · 18 páginas
+            <Sparkles className="size-3.5" /> E-book digital · 18 páginas
           </span>
           <h1
             className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl"
-            style={{ color: "#1C2B27", letterSpacing: "-0.03em" }}
+            style={{ color: "#FFFFFF", letterSpacing: "-0.03em" }}
           >
-            De Principiante a Inversionista
+            De Principiante a{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(120deg, #5CE0B6 0%, #A7E3CE 60%, #FFFFFF 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Inversionista
+            </span>
           </h1>
-          <p className="mt-5 text-lg" style={{ color: "#3D5A52", lineHeight: 1.6 }}>
+          <p className="mt-5 text-lg" style={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.6 }}>
             La guía completa para entender cómo funciona la bolsa de valores y
             sentirte listo para hacer tu primera inversión desde Honduras.
           </p>
           <div className="mt-7">
-            <div style={{ color: "#1A6B55", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>
+            <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>
               L270
             </div>
-            <div style={{ color: "#8BA89F", fontSize: 12, marginTop: 4 }}>pago único</div>
+            <div style={{ color: "rgba(255,255,255,0.65)", fontSize: 12, marginTop: 4 }}>pago único</div>
           </div>
           <div className="mt-6">
             <HotmartButton
@@ -279,9 +325,13 @@ function EbookPage() {
       <SiteHeader />
       <main>
         <Hero />
+        <SectionDivider />
         <WhatYouLearn />
+        <SectionDivider />
         <ForWhom />
+        <SectionDivider />
         <Transformation />
+        <SectionDivider />
         <FinalCTA />
       </main>
       <SiteFooter />
