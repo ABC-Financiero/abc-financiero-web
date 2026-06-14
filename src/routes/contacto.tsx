@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PageHero, SectionDivider } from "@/components/PageHero";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -25,42 +26,26 @@ export const Route = createFileRoute("/contacto")({
 
 function Hero() {
   return (
-    <section
-      style={{
-        background: "#0D2B22",
-        minHeight: "50vh",
-        position: "relative",
-        overflow: "hidden",
-      }}
-      className="flex items-center justify-center"
-    >
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "radial-gradient(circle at 85% 15%, rgba(107,79,200,0.18), transparent 55%), radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)",
-          backgroundSize: "auto, 22px 22px",
-          opacity: 1,
-          pointerEvents: "none",
-        }}
-      />
-      <div className="relative mx-auto max-w-3xl px-4 py-20 text-center">
-        <h1
-          className="text-4xl font-extrabold tracking-tight md:text-5xl"
-          style={{ color: "#FFFFFF", letterSpacing: "-0.03em" }}
-        >
-          ¿Tienes alguna pregunta?
-        </h1>
-        <p
-          className="mx-auto mt-5 max-w-xl text-base md:text-lg"
-          style={{ color: "rgba(255,255,255,0.7)" }}
-        >
-          Escríbenos directamente y te respondemos a la brevedad.
-        </p>
-      </div>
-    </section>
+    <PageHero
+      eyebrow={<><Sparkles className="size-3.5" /> Estamos para ayudarte</>}
+      title={
+        <>
+          ¿Tienes alguna{" "}
+          <span
+            style={{
+              background:
+                "linear-gradient(120deg, #5CE0B6 0%, #A7E3CE 60%, #FFFFFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            pregunta?
+          </span>
+        </>
+      }
+      subtitle="Escríbenos directamente y te respondemos a la brevedad."
+    />
   );
 }
 
