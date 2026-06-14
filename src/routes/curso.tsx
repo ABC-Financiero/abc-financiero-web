@@ -33,7 +33,7 @@ function Cover() {
     <div
       className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[20px] p-8"
       style={{
-        background: "linear-gradient(160deg, #1A6B55 0%, #6B4FC8 100%)",
+        background: "linear-gradient(160deg, #0E1816 0%, #0F3D33 55%, #1A6B55 100%)",
         boxShadow: "0 30px 60px rgba(107,79,200,0.30)",
       }}
     >
@@ -340,7 +340,7 @@ function Bonuses() {
             >
               <span
                 className="grid h-12 w-12 place-items-center rounded-2xl text-white"
-                style={{ background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)" }}
+                style={{ background: "linear-gradient(135deg, #0E1816 0%, #0F3D33 50%, #1A6B55 100%)" }}
               >
                 <it.icon className="size-5" strokeWidth={1.8} />
               </span>
@@ -410,7 +410,7 @@ function FinalCTA() {
   return (
     <section
       className="py-20 text-center text-white"
-      style={{ background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)" }}
+      style={{ background: "linear-gradient(135deg, #0E1816 0%, #0F3D33 50%, #1A6B55 100%)" }}
     >
       <div className="mx-auto max-w-3xl px-4">
         <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
