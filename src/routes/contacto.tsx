@@ -204,6 +204,7 @@ function ContactoPage() {
       <SiteHeader />
       <main>
         <Hero />
+        <SectionDivider />
         <ContactForm />
       </main>
       <SiteFooter />
