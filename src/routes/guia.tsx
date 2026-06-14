@@ -452,9 +452,13 @@ function GuiaPage() {
       <Navbar />
       <main>
         <Hero />
+        <SectionDivider />
         <WhatYouLearn />
+        <SectionDivider />
         <SocialProof />
+        <SectionDivider />
         <MentorshipCard />
+        <SectionDivider />
         <FinalCTA />
       </main>
       <SiteFooter />
