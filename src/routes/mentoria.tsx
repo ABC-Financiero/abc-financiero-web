@@ -65,7 +65,7 @@ function Includes() {
       text: "Analizamos tu situación financiera real desde la primera sesión.",
     },
     {
-      icon: Map,
+      icon: MapIcon,
       title: "Plan de acción personalizado",
       text: "Un camino claro adaptado a tus metas y tu punto de partida.",
     },
