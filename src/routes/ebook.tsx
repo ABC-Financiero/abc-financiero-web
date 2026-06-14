@@ -3,6 +3,7 @@ import { CircleCheck } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HotmartButton } from "@/components/HotmartButton";
+import ebookCover from "@/assets/ebook-cover.png.asset.json";
 
 export const Route = createFileRoute("/ebook")({
   head: () => ({
@@ -19,6 +20,7 @@ export const Route = createFileRoute("/ebook")({
         content:
           "18 páginas que pueden cambiar cómo ves tu dinero. Aprende a invertir desde Honduras.",
       },
+      { property: "og:image", content: ebookCover.url },
     ],
   }),
   component: EbookPage,
@@ -27,32 +29,24 @@ export const Route = createFileRoute("/ebook")({
 function EbookCover() {
   return (
     <div
-      className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[20px] p-8"
+      className="relative mx-auto w-full max-w-md overflow-hidden rounded-[20px]"
       style={{
-        background: "linear-gradient(160deg, #1A6B55 0%, #0E1816 100%)",
-        boxShadow: "0 30px 60px rgba(26,107,85,0.35)",
+        background:
+          "linear-gradient(160deg, #0E1816 0%, #0F3D33 60%, #1A6B55 100%)",
+        boxShadow: "0 30px 60px rgba(14,24,22,0.35)",
+        padding: 18,
       }}
     >
-      <div
-        className="absolute inset-x-8 top-1/3 h-1"
-        style={{ background: "#6B4FC8", borderRadius: 2 }}
+      <img
+        src={ebookCover.url}
+        alt="Portada del e-book: Invertir en la Bolsa de Valores por Ricardo Araque"
+        className="block w-full rounded-[14px]"
+        style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.25)" }}
       />
-      <div className="flex h-full flex-col justify-between text-white">
-        <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "#AFA9EC", fontWeight: 700 }}>
-          ABC FINANCIERO · E-BOOK
-        </span>
-        <div>
-          <p className="text-3xl font-extrabold leading-[1.1]" style={{ letterSpacing: "-0.02em" }}>
-            De Principiante a Inversionista
-          </p>
-          <p className="mt-4 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
-            Por Ricardo Araque
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
+
 
 function Hero() {
   return (
@@ -252,7 +246,7 @@ function FinalCTA() {
   return (
     <section
       className="py-20 text-center text-white"
-      style={{ background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)" }}
+      style={{ background: "linear-gradient(135deg, #0E1816 0%, #0F3D33 50%, #1A6B55 100%)" }}
     >
       <div className="mx-auto max-w-3xl px-4">
         <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">

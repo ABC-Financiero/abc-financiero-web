@@ -69,7 +69,7 @@ export function SiteFooter() {
               className="flex items-center gap-2"
               style={{ ...linkStyle, color: "#FFFFFF" }}
             >
-              <Mail className="size-4" style={{ color: "#6B4FC8" }} />
+              <Mail className="size-4" style={{ color: "#FFFFFF" }} />
               raraquen@abcfinanciero.com
             </a>
             <a
@@ -79,7 +79,7 @@ export function SiteFooter() {
               className="flex items-center gap-2"
               style={{ ...linkStyle, color: "#FFFFFF" }}
             >
-              <MessageCircle className="size-4" style={{ color: "#6B4FC8" }} />
+              <MessageCircle className="size-4" style={{ color: "#FFFFFF" }} />
               +504 8732-8488
             </a>
           </div>
