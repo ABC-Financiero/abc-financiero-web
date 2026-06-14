@@ -174,7 +174,7 @@ function Hero() {
               border: "1px solid rgba(255,255,255,0.12)",
             }}
           >
-            <TrendingUp className="size-3.5" /> +28,000 seguidores en TikTok
+            <TrendingUp className="size-3.5" /> +1,000 miembros en la comunidad privada
           </span>
           <span
             className="inline-flex items-center gap-2 rounded-full px-3 py-1.5"
@@ -426,7 +426,7 @@ function Solutions() {
               <div style={subPrice}>por sesión</div>
             </div>
             <div className="mt-5">
-              <Link to="/mentoria" className="btn-dark text-sm">
+              <Link to="/mentoria" className="btn-ghost text-sm">
                 Ver mentoría <ArrowRight className="size-4" />
               </Link>
             </div>
@@ -599,7 +599,7 @@ function AboutRicardo() {
           style={{ color: "#3D5A52" }}
         >
           <p>
-            ABC Financiero es una plataforma de educación financiera fundada
+            ABC Financiero es una empresa de educación financiera fundada
             por <strong style={{ color: "#1C2B27" }}>Ricardo Araque</strong>,
             creada para que cualquier hondureño pueda aprender a invertir en la
             bolsa de valores con claridad, estrategia y acompañamiento real.
