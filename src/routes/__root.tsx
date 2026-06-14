@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -114,6 +115,7 @@ function RootShell({ children }: { children: ReactNode }) {
         {children}
         <Scripts />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
