@@ -1,12 +1,15 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import {
   ClipboardList,
   Map as MapIcon,
   Users,
   Target,
+  HelpCircle,
+  Sparkles,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PageHero, SectionDivider } from "@/components/PageHero";
 import { QualificationCall } from "@/components/QualificationCall";
 
 export const Route = createFileRoute("/mentoria")({
@@ -31,29 +34,34 @@ export const Route = createFileRoute("/mentoria")({
 
 function Hero() {
   return (
-    <section style={{ background: "#E8F5F0" }} className="py-20 md:py-28">
-      <div className="mx-auto max-w-4xl px-4 text-center">
-        <h1
-          className="text-4xl font-extrabold tracking-tight md:text-5xl"
-          style={{ color: "#1C2B27", letterSpacing: "-0.03em" }}
-        >
-          Mentoría personalizada de finanzas e inversiones
-        </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base md:text-lg" style={{ color: "#3D5A52" }}>
-          Un plan hecho para ti, con acompañamiento real desde la primera
-          sesión.
-        </p>
-        <div className="mt-8">
-          <a
-            href="#llamada"
-            className="inline-flex items-center justify-center rounded-full text-white transition-colors hover:opacity-95"
-            style={{ background: "#2E9B7A", fontWeight: 700, padding: "12px 26px" }}
+    <PageHero
+      eyebrow={<><Sparkles className="size-3.5" /> Mentoría personalizada</>}
+      title={
+        <>
+          Un plan de inversión hecho{" "}
+          <span
+            style={{
+              background:
+                "linear-gradient(120deg, #5CE0B6 0%, #A7E3CE 60%, #FFFFFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
           >
-            Reservar llamada gratuita
-          </a>
-        </div>
-      </div>
-    </section>
+            para ti
+          </span>
+        </>
+      }
+      subtitle="Acompañamiento real desde la primera sesión: claridad, estrategia y pasos concretos."
+    >
+      <a
+        href="#llamada"
+        className="inline-flex items-center justify-center rounded-full text-white transition-opacity hover:opacity-95"
+        style={{ background: "#2E9B7A", fontWeight: 700, padding: "12px 26px" }}
+      >
+        Reservar llamada gratuita
+      </a>
+    </PageHero>
   );
 }
 
@@ -155,81 +163,85 @@ function ForWhom() {
   );
 }
 
-function Testimonials() {
-  const items = [
-    {
-      quote:
-        "Logré entender por dónde empezar y por fin tengo un plan claro para mi dinero.",
-      name: "María",
-      age: "32 años",
-      initials: "MR",
-    },
-    {
-      quote:
-        "El acompañamiento marca la diferencia. Pude salir de deudas con un plan real.",
-      name: "Carlos",
-      age: "28 años",
-      initials: "CL",
-    },
-  ];
-  return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#1A6B55" }}>
-          Lo que dicen quienes ya trabajan con nosotros
-        </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {items.map((t) => (
-            <div
-              key={t.name}
-              className="rounded-[16px] p-7"
-              style={{ background: "#E8F5F0", border: "1px solid #C5E4DA" }}
-            >
-              <p className="text-[16px] leading-[1.7]" style={{ color: "#1C2B27" }}>
-                “{t.quote}”
-              </p>
-              <div className="mt-5 flex items-center gap-3">
-                <span
-                  className="grid h-10 w-10 place-items-center rounded-full text-sm font-bold text-white"
-                  style={{ background: "#2E9B7A" }}
-                >
-                  {t.initials}
-                </span>
-                <span className="text-sm font-semibold" style={{ color: "#1A6B55" }}>
-                  {t.name} · {t.age}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FinalCTA() {
   return (
-    <section style={{ background: "#1A6B55" }} className="py-20 text-center">
-      <div className="mx-auto max-w-3xl px-4">
-        <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-          ¿Listo para empezar?
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl text-base" style={{ color: "rgba(255,255,255,0.85)" }}>
-          El primer paso es una conversación. Sin compromiso.
-        </p>
-        <div className="mt-8">
-          <a
-            href="#llamada"
-            className="inline-flex items-center justify-center rounded-full transition-colors hover:opacity-95"
+    <section
+      className="relative overflow-hidden py-20 text-center"
+      style={{
+        background:
+          "linear-gradient(160deg, #0A1F1A 0%, #0F3D33 55%, #1A6B55 100%)",
+      }}
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+      <div className="relative mx-auto max-w-2xl px-4">
+        <div
+          className="mx-auto rounded-[24px] p-8 md:p-12"
+          style={{
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.14)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 20px 50px rgba(0,0,0,0.30)",
+          }}
+        >
+          <span
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1"
             style={{
-              background: "#FFFFFF",
-              color: "#1A6B55",
+              background: "rgba(255,255,255,0.08)",
+              color: "#A7E3CE",
+              border: "1px solid rgba(167,227,206,0.25)",
+              fontSize: 11,
               fontWeight: 700,
-              padding: "12px 26px",
             }}
           >
-            Reservar llamada gratuita
-          </a>
+            <HelpCircle className="size-3.5" /> Sin compromiso
+          </span>
+          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+            ¿Quieres despejar tus dudas?
+          </h2>
+          <p
+            className="mx-auto mt-4 max-w-lg text-base md:text-lg"
+            style={{ color: "rgba(255,255,255,0.82)" }}
+          >
+            Conversemos 15 minutos. Te escuchamos, resolvemos tus dudas y te
+            decimos si la mentoría es para ti — sin presión y totalmente gratis.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="#llamada"
+              className="inline-flex items-center justify-center rounded-full transition-opacity hover:opacity-95"
+              style={{
+                background: "#2E9B7A",
+                color: "#FFFFFF",
+                fontWeight: 700,
+                padding: "14px 30px",
+                fontSize: 15,
+              }}
+            >
+              Reservar llamada gratuita
+            </a>
+            <a
+              href="#llamada"
+              className="inline-flex items-center justify-center rounded-full transition-colors"
+              style={{
+                background: "transparent",
+                border: "1.5px solid rgba(255,255,255,0.35)",
+                color: "#FFFFFF",
+                fontWeight: 600,
+                padding: "12px 24px",
+                fontSize: 14,
+              }}
+            >
+              Ver cómo funciona
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -242,10 +254,13 @@ function MentoriaPage() {
       <SiteHeader />
       <main>
         <Hero />
+        <SectionDivider />
         <Includes />
+        <SectionDivider />
         <ForWhom />
-        <Testimonials />
+        <SectionDivider />
         <QualificationCall id="llamada" />
+        <SectionDivider />
         <FinalCTA />
       </main>
       <SiteFooter />

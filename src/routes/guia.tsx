@@ -13,9 +13,9 @@ import {
   LineChart as IconLineChart,
   ShoppingCart as IconShoppingCart,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SectionDivider } from "@/components/PageHero";
 import { subscribeToBrevoList } from "@/lib/brevo.functions";
 
 const BRAND = "ABC Financiero";
@@ -147,25 +147,76 @@ function Hero() {
     "Cómo leer un activo y comprar tu primera inversión paso a paso",
   ];
   return (
-    <section id="form" className="bg-soft-emerald">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-2 md:py-24">
+    <section
+      id="form"
+      className="relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(160deg, #0A1F1A 0%, #0F3D33 55%, #133D2F 100%)",
+      }}
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{
+          top: "-20%",
+          right: "-10%",
+          width: 520,
+          height: 520,
+          background:
+            "radial-gradient(circle, rgba(46,155,122,0.30), transparent 65%)",
+          filter: "blur(20px)",
+        }}
+      />
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-2 md:py-24">
         <div className="flex flex-col justify-center">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-emerald-border bg-white px-3 py-1 text-xs font-semibold text-brand-emerald">
+          <span
+            className="inline-flex w-fit items-center gap-2 rounded-full px-3 py-1"
+            style={{
+              background: "rgba(255,255,255,0.08)",
+              color: "#A7E3CE",
+              border: "1px solid rgba(167,227,206,0.25)",
+              fontSize: 12,
+              fontWeight: 700,
+            }}
+          >
             <Leaf className="size-3.5" /> Guía gratis
           </span>
-          <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-brand-navy md:text-5xl">
+          <h1
+            className="mt-4 text-4xl font-extrabold leading-tight tracking-tight md:text-5xl"
+            style={{ color: "#FFFFFF", letterSpacing: "-0.03em" }}
+          >
             Abre tu cuenta en Hapi y haz tu primera inversión —{" "}
-            <span className="text-brand-emerald">gratis</span>
+            <span
+              style={{
+                background:
+                  "linear-gradient(120deg, #5CE0B6 0%, #A7E3CE 60%, #FFFFFF 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              gratis
+            </span>
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-brand-neutral-700">
+          <p className="mt-5 max-w-xl text-lg" style={{ color: "rgba(255,255,255,0.8)" }}>
             Descarga la guía paso a paso para abrir tu cuenta en Hapi desde Honduras,
             depositar sin errores y comprar tu primer activo con confianza.
           </p>
           <ul className="mt-7 space-y-3">
             {bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <IconCircleCheck className="mt-0.5 size-6 shrink-0 " style={{color:"#6B4FC8"}} />
-                <span className="text-brand-neutral-700">{b}</span>
+                <IconCircleCheck className="mt-0.5 size-6 shrink-0" style={{ color: "#A7E3CE" }} />
+                <span style={{ color: "rgba(255,255,255,0.85)" }}>{b}</span>
               </li>
             ))}
           </ul>
@@ -322,11 +373,9 @@ function MentorshipCard() {
             ))}
           </ul>
           <div className="mt-8">
-            <Button asChild variant="navy" size="xl" className="w-full sm:w-auto">
-              <a href="/">
-                Me interesa <ArrowRight className="size-4" />
-              </a>
-            </Button>
+            <a href="/mentoria" className="btn-ghost text-sm">
+              Conocer la mentoría <ArrowRight className="size-4" />
+            </a>
           </div>
         </div>
       </div>
@@ -403,9 +452,13 @@ function GuiaPage() {
       <Navbar />
       <main>
         <Hero />
+        <SectionDivider />
         <WhatYouLearn />
+        <SectionDivider />
         <SocialProof />
+        <SectionDivider />
         <MentorshipCard />
+        <SectionDivider />
         <FinalCTA />
       </main>
       <SiteFooter />

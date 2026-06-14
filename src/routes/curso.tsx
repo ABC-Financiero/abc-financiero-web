@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CircleCheck, MessagesSquare, Phone, Infinity as InfinityIcon } from "lucide-react";
+import { CircleCheck, MessagesSquare, Phone, Infinity as InfinityIcon, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SectionDivider } from "@/components/PageHero";
 import { HotmartButton } from "@/components/HotmartButton";
 import { useUsdHnlRate, formatLempiras } from "@/lib/useExchangeRate";
 
@@ -32,7 +33,7 @@ function Cover() {
     <div
       className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[20px] p-8"
       style={{
-        background: "linear-gradient(160deg, #1A6B55 0%, #6B4FC8 100%)",
+        background: "linear-gradient(160deg, #0E1816 0%, #0F3D33 55%, #1A6B55 100%)",
         boxShadow: "0 30px 60px rgba(107,79,200,0.30)",
       }}
     >
@@ -69,43 +70,90 @@ function Hero() {
   const { rate } = useUsdHnlRate();
   const lps = formatLempiras(COURSE_USD, rate);
   const bonusBadge: React.CSSProperties = {
-    background: "#E8F5F0",
-    color: "#1A6B55",
+    background: "rgba(255,255,255,0.08)",
+    color: "#A7E3CE",
+    border: "1px solid rgba(167,227,206,0.25)",
     borderRadius: 999,
     fontSize: 12,
     padding: "6px 12px",
     fontWeight: 600,
   };
   return (
-    <section style={{ background: "#E8F5F0" }} className="py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
+    <section
+      className="relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(160deg, #0A1F1A 0%, #0F3D33 55%, #133D2F 100%)",
+      }}
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{
+          top: "-20%",
+          right: "-10%",
+          width: 520,
+          height: 520,
+          background:
+            "radial-gradient(circle, rgba(46,155,122,0.30), transparent 65%)",
+          filter: "blur(20px)",
+        }}
+      />
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2 md:items-center md:py-28">
         <div>
           <span
-            className="inline-block rounded-full px-3 py-1"
-            style={{ background: "#EEEDFE", color: "#3C3489", fontSize: 11, fontWeight: 700 }}
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1"
+            style={{
+              background: "rgba(255,255,255,0.08)",
+              color: "#A7E3CE",
+              border: "1px solid rgba(167,227,206,0.25)",
+              fontSize: 11,
+              fontWeight: 700,
+            }}
           >
-            Curso pregrabado · 13 módulos
+            <Sparkles className="size-3.5" /> Curso pregrabado · 13 módulos
           </span>
           <h1
             className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl"
-            style={{ color: "#1C2B27", letterSpacing: "-0.03em" }}
+            style={{ color: "#FFFFFF", letterSpacing: "-0.03em" }}
           >
-            Crece tu dinero en la bolsa de valores con un portafolio simple y funcional
+            Crece tu dinero en la{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(120deg, #5CE0B6 0%, #A7E3CE 60%, #FFFFFF 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              bolsa de valores
+            </span>
           </h1>
-          <p className="mt-5 text-lg" style={{ color: "#3D5A52", lineHeight: 1.6 }}>
+          <p className="mt-5 text-lg" style={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.6 }}>
             Aprende paso a paso cómo construir un portafolio de inversión
             adaptado a ti desde Honduras — sin experiencia previa, a tu propio ritmo.
           </p>
           <div className="mt-7">
-            <PriceBlock lps={lps} />
+            <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{lps}</div>
+            <div style={{ color: "rgba(255,255,255,0.65)", fontSize: 12, marginTop: 4 }}>pago único</div>
           </div>
           <div className="mt-6">
             <HotmartButton href={COURSE_HOTMART} label="Comprar ahora" />
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
-            <span style={bonusBadge}>✓ Acceso a comunidad WhatsApp</span>
+            <span style={bonusBadge}>✓ Comunidad WhatsApp</span>
             <span style={bonusBadge}>✓ Llamada de 30 min con Ricardo</span>
-            <span style={bonusBadge}>✓ Acceso de por vida y actualizaciones</span>
+            <span style={bonusBadge}>✓ Acceso de por vida</span>
           </div>
         </div>
         <div>
@@ -292,7 +340,7 @@ function Bonuses() {
             >
               <span
                 className="grid h-12 w-12 place-items-center rounded-2xl text-white"
-                style={{ background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)" }}
+                style={{ background: "linear-gradient(135deg, #0E1816 0%, #0F3D33 50%, #1A6B55 100%)" }}
               >
                 <it.icon className="size-5" strokeWidth={1.8} />
               </span>
@@ -362,7 +410,7 @@ function FinalCTA() {
   return (
     <section
       className="py-20 text-center text-white"
-      style={{ background: "linear-gradient(135deg, #1A6B55 0%, #6B4FC8 100%)" }}
+      style={{ background: "linear-gradient(135deg, #0E1816 0%, #0F3D33 50%, #1A6B55 100%)" }}
     >
       <div className="mx-auto max-w-3xl px-4">
         <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
@@ -402,11 +450,17 @@ function CursoPage() {
       <SiteHeader />
       <main>
         <Hero />
+        <SectionDivider />
         <ForWhom />
+        <SectionDivider />
         <Modules />
+        <SectionDivider />
         <Transformation />
+        <SectionDivider />
         <Bonuses />
+        <SectionDivider />
         <Objections />
+        <SectionDivider />
         <FinalCTA />
       </main>
       <SiteFooter />
