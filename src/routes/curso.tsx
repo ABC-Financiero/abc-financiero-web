@@ -157,7 +157,7 @@ function Hero() {
           </div>
         </div>
         <div>
-          <Cover />
+          {/* Cover removed per user request */}
         </div>
       </div>
     </section>
