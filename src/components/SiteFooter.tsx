@@ -91,8 +91,8 @@ export function SiteFooter() {
         >
           <span>© 2026 ABC Financiero. Todos los derechos reservados.</span>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-white">Aviso legal</a>
-            <a href="#" className="hover:text-white">Política de privacidad</a>
+            <Link to="/legal" className="hover:text-white">Aviso legal</Link>
+            <Link to="/privacidad" className="hover:text-white">Política de privacidad</Link>
           </div>
         </div>
       </div>
