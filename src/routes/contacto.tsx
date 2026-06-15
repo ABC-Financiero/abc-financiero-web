@@ -4,6 +4,7 @@ import { Mail, MessageCircle, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero, SectionDivider } from "@/components/PageHero";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -176,7 +177,7 @@ function ContactForm() {
             </span>
           </a>
           <a
-            href="https://wa.me/50487328488"
+            href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="card-hover flex items-center gap-3 rounded-[20px] bg-white p-5"
