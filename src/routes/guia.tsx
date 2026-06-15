@@ -76,8 +76,17 @@ function LeadForm() {
         </div>
         <h3 className="text-xl font-bold text-brand-navy">¡Listo!</h3>
         <p className="mt-2 text-brand-neutral-700">
-          Revisa tu correo — la guía está en camino.
+          Te enviamos la guía a tu correo. Si no la ves en unos minutos, revisa spam o descárgala aquí:
         </p>
+        <a
+          href="https://drive.google.com/file/d/1ZyzC09gZyrz2kdw9FU-E8b5AlFNJwCyp/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-brand-emerald-mid px-6 py-3.5 text-base font-bold text-white shadow-sm transition hover:bg-brand-emerald"
+        >
+          Descargar guía ahora
+          <ArrowRight className="size-4" />
+        </a>
       </div>
     );
   }
