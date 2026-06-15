@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MessageCircle } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const labelStyle: React.CSSProperties = {
   textTransform: "uppercase",
@@ -73,7 +74,7 @@ export function SiteFooter() {
               raraquen@abcfinanciero.com
             </a>
             <a
-              href="https://wa.me/50487328488"
+              href={buildWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
