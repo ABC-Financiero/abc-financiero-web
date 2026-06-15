@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MessageCircle } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const labelStyle: React.CSSProperties = {
   textTransform: "uppercase",
