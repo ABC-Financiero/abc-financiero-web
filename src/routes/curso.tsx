@@ -108,7 +108,7 @@ function Hero() {
           filter: "blur(20px)",
         }}
       />
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2 md:items-center md:py-28">
+      <div className="relative mx-auto max-w-3xl px-4 py-20 text-center md:py-28">
         <div>
           <span
             className="inline-flex items-center gap-2 rounded-full px-3 py-1"
@@ -143,21 +143,20 @@ function Hero() {
             Aprende paso a paso cómo construir un portafolio de inversión
             adaptado a ti desde Honduras — sin experiencia previa, a tu propio ritmo.
           </p>
-          <div className="mt-7">
-            <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{lps}</div>
-            <div style={{ color: "rgba(255,255,255,0.65)", fontSize: 12, marginTop: 4 }}>pago único</div>
+          <div className="mt-7 flex justify-center">
+            <div>
+              <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{lps}</div>
+              <div style={{ color: "rgba(255,255,255,0.65)", fontSize: 12, marginTop: 4 }}>pago único</div>
+            </div>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 flex justify-center">
             <HotmartButton href={COURSE_HOTMART} label="Comprar ahora" />
           </div>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
             <span style={bonusBadge}>✓ Comunidad WhatsApp</span>
             <span style={bonusBadge}>✓ Llamada de 30 min con Ricardo</span>
             <span style={bonusBadge}>✓ Acceso de por vida</span>
           </div>
-        </div>
-        <div>
-          {/* Cover removed per user request */}
         </div>
       </div>
     </section>
