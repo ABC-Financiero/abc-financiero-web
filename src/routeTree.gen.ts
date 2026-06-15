@@ -9,16 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as MentoriaRouteImport } from './routes/mentoria'
+import { Route as LegalRouteImport } from './routes/legal'
 import { Route as GuiaRouteImport } from './routes/guia'
 import { Route as EbookRouteImport } from './routes/ebook'
 import { Route as CursoRouteImport } from './routes/curso'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PrivacidadRoute = PrivacidadRouteImport.update({
+  id: '/privacidad',
+  path: '/privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MentoriaRoute = MentoriaRouteImport.update({
   id: '/mentoria',
   path: '/mentoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalRoute = LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuiaRoute = GuiaRouteImport.update({
@@ -53,7 +65,9 @@ export interface FileRoutesByFullPath {
   '/curso': typeof CursoRoute
   '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
+  '/legal': typeof LegalRoute
   '/mentoria': typeof MentoriaRoute
+  '/privacidad': typeof PrivacidadRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +75,9 @@ export interface FileRoutesByTo {
   '/curso': typeof CursoRoute
   '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
+  '/legal': typeof LegalRoute
   '/mentoria': typeof MentoriaRoute
+  '/privacidad': typeof PrivacidadRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,13 +86,31 @@ export interface FileRoutesById {
   '/curso': typeof CursoRoute
   '/ebook': typeof EbookRoute
   '/guia': typeof GuiaRoute
+  '/legal': typeof LegalRoute
   '/mentoria': typeof MentoriaRoute
+  '/privacidad': typeof PrivacidadRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contacto' | '/curso' | '/ebook' | '/guia' | '/mentoria'
+  fullPaths:
+    | '/'
+    | '/contacto'
+    | '/curso'
+    | '/ebook'
+    | '/guia'
+    | '/legal'
+    | '/mentoria'
+    | '/privacidad'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contacto' | '/curso' | '/ebook' | '/guia' | '/mentoria'
+  to:
+    | '/'
+    | '/contacto'
+    | '/curso'
+    | '/ebook'
+    | '/guia'
+    | '/legal'
+    | '/mentoria'
+    | '/privacidad'
   id:
     | '__root__'
     | '/'
@@ -84,7 +118,9 @@ export interface FileRouteTypes {
     | '/curso'
     | '/ebook'
     | '/guia'
+    | '/legal'
     | '/mentoria'
+    | '/privacidad'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,16 +129,32 @@ export interface RootRouteChildren {
   CursoRoute: typeof CursoRoute
   EbookRoute: typeof EbookRoute
   GuiaRoute: typeof GuiaRoute
+  LegalRoute: typeof LegalRoute
   MentoriaRoute: typeof MentoriaRoute
+  PrivacidadRoute: typeof PrivacidadRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/privacidad': {
+      id: '/privacidad'
+      path: '/privacidad'
+      fullPath: '/privacidad'
+      preLoaderRoute: typeof PrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mentoria': {
       id: '/mentoria'
       path: '/mentoria'
       fullPath: '/mentoria'
       preLoaderRoute: typeof MentoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guia': {
@@ -149,8 +201,20 @@ const rootRouteChildren: RootRouteChildren = {
   CursoRoute: CursoRoute,
   EbookRoute: EbookRoute,
   GuiaRoute: GuiaRoute,
+  LegalRoute: LegalRoute,
   MentoriaRoute: MentoriaRoute,
+  PrivacidadRoute: PrivacidadRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
