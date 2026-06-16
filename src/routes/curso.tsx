@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CircleCheck, MessagesSquare, Phone, Infinity as InfinityIcon, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SectionDivider } from "@/components/PageHero";
+import { HotmartButton } from "@/components/HotmartButton";
 
 export const Route = createFileRoute("/curso")({
   head: () => ({
