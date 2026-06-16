@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import testimonioImg from "@/assets/testimonio-inversion.png.asset.json";
+import { useUsdHnlRate, formatLempiras } from "@/lib/useExchangeRate";
 import { useUsdHnlRate, formatLempiras } from "@/lib/useExchangeRate";
 
 export const Route = createFileRoute("/")({
