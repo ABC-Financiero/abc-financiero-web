@@ -166,7 +166,7 @@ function Hero() {
         {/* Trust strip */}
         <div
           className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-3 text-xs"
-          style={{ color: "rgba(255,255,255,0.7)" }}
+          style={{ color: "rgba(255,255,255,0.82)" }}
         >
           <span
             className="inline-flex items-center gap-2 rounded-full px-3 py-1.5"
@@ -302,7 +302,7 @@ function Solutions() {
     lineHeight: 1,
   };
   const subPrice: React.CSSProperties = {
-    color: "#8BA89F",
+    color: "#5A7A70",
     fontSize: 12,
     marginTop: 4,
   };
@@ -562,7 +562,7 @@ function Testimonials() {
                       </div>
                       <div
                         className="text-xs"
-                        style={{ color: "#8BA89F" }}
+                        style={{ color: "#5A7A70" }}
                       >
                         {t.tag}
                       </div>

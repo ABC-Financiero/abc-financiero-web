@@ -37,7 +37,7 @@ function Cover() {
       }}
     >
       <div className="flex h-full flex-col justify-between text-white">
-        <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "rgba(255,255,255,0.75)", fontWeight: 700 }}>
+        <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "rgba(255,255,255,0.82)", fontWeight: 700 }}>
           ABC FINANCIERO · CURSO
         </span>
         <div>
@@ -143,7 +143,7 @@ function Hero() {
           <div className="mt-7 flex justify-center">
             <div>
               <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{COURSE_PRICE}</div>
-              <div style={{ color: "rgba(255,255,255,0.65)", fontSize: 12, marginTop: 4 }}>pago único</div>
+              <div style={{ color: "rgba(255,255,255,0.75)", fontSize: 12, marginTop: 4 }}>pago único</div>
             </div>
           </div>
           <div className="mt-6 flex justify-center">
@@ -418,7 +418,7 @@ function FinalCTA() {
         </p>
         <div className="mt-6">
           <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{COURSE_PRICE}</div>
-          <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, marginTop: 4 }}>pago único</div>
+          <div style={{ color: "rgba(255,255,255,0.75)", fontSize: 12, marginTop: 4 }}>pago único</div>
         </div>
         <div className="mx-auto mt-6 w-full max-w-[400px]">
           <HotmartButton href={COURSE_HOTMART} label="Comprar ahora" fullWidth />

@@ -447,7 +447,7 @@ function FinalCTA() {
             Conocer la mentoría
           </a>
         </div>
-        <p className="mt-5 text-xs text-white/60">
+        <p className="mt-5 text-xs text-white/75">
           Sin spam. Solo contenido que te ayuda a crecer.
         </p>
       </div>

@@ -313,7 +313,7 @@ export function QualificationCall({ id = "llamada" }: { id?: string }) {
                     ) : (
                       <span />
                     )}
-                    <span className="text-xs text-brand-neutral-400">
+                    <span className="text-xs text-brand-neutral-700">
                       {q3.trim().length}/20
                     </span>
                   </div>
