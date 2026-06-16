@@ -2,9 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CircleCheck, MessagesSquare, Phone, Infinity as InfinityIcon, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { SectionDivider } from "@/components/PageHero";
-import { HotmartButton } from "@/components/HotmartButton";
-import { useUsdHnlRate, formatLempiras } from "@/lib/useExchangeRate";
 
 export const Route = createFileRoute("/curso")({
   head: () => ({
@@ -25,7 +22,7 @@ export const Route = createFileRoute("/curso")({
   component: CursoPage,
 });
 
-const COURSE_USD = 37;
+const COURSE_PRICE = "L1,044";
 const COURSE_HOTMART = "https://pay.hotmart.com/E106105146G?checkoutMode=2";
 
 function Cover() {
@@ -57,18 +54,16 @@ function Cover() {
   );
 }
 
-function PriceBlock({ lps }: { lps: string }) {
+function PriceBlock() {
   return (
     <div>
-      <div style={{ color: "#1A6B55", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{lps}</div>
+      <div style={{ color: "#1A6B55", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{COURSE_PRICE}</div>
       <div style={{ color: "#8BA89F", fontSize: 12, marginTop: 4 }}>pago único</div>
     </div>
   );
 }
 
 function Hero() {
-  const { rate } = useUsdHnlRate();
-  const lps = formatLempiras(COURSE_USD, rate);
   const bonusBadge: React.CSSProperties = {
     background: "rgba(255,255,255,0.08)",
     color: "#A7E3CE",
@@ -145,7 +140,7 @@ function Hero() {
           </p>
           <div className="mt-7 flex justify-center">
             <div>
-              <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{lps}</div>
+              <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{COURSE_PRICE}</div>
               <div style={{ color: "rgba(255,255,255,0.65)", fontSize: 12, marginTop: 4 }}>pago único</div>
             </div>
           </div>
@@ -404,8 +399,6 @@ function Objections() {
 }
 
 function FinalCTA() {
-  const { rate } = useUsdHnlRate();
-  const lps = formatLempiras(COURSE_USD, rate);
   return (
     <section
       className="py-20 text-center text-white"
@@ -422,7 +415,7 @@ function FinalCTA() {
           Acceso de por vida. Comunidad incluida. Llamada personal incluida.
         </p>
         <div className="mt-6">
-          <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{lps}</div>
+          <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>{COURSE_PRICE}</div>
           <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, marginTop: 4 }}>pago único</div>
         </div>
         <div className="mx-auto mt-6 w-full max-w-[400px]">

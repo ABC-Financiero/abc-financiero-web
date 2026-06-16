@@ -117,7 +117,7 @@ function Hero() {
           </p>
           <div className="mt-7">
             <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>
-              L270
+              L282
             </div>
             <div style={{ color: "rgba(255,255,255,0.65)", fontSize: 12, marginTop: 4 }}>pago único</div>
           </div>
@@ -305,7 +305,7 @@ function FinalCTA() {
           18 páginas que pueden cambiar cómo ves tu dinero. Un solo pago y acceso para siempre.
         </p>
         <div className="mt-6">
-          <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>L270</div>
+          <div style={{ color: "#FFFFFF", fontSize: 32, fontWeight: 700, lineHeight: 1 }}>L282</div>
           <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, marginTop: 4 }}>pago único</div>
         </div>
         <div className="mt-6 flex justify-center">
