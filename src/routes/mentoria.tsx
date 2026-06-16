@@ -28,6 +28,27 @@ export const Route = createFileRoute("/mentoria")({
           "Acompañamiento real para ordenar tus finanzas, salir de deudas o empezar a invertir con un plan hecho para ti.",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Mentoría 1 a 1 | ABC Financiero",
+          description: "Mentoría personalizada de finanzas e inversiones desde Honduras. Acompañamiento real para ordenar tus finanzas, salir de deudas o empezar a invertir con un plan hecho para ti.",
+          provider: {
+            "@type": "Organization",
+            name: "ABC Financiero",
+            url: "https://abcfinanciero.com",
+          },
+          areaServed: {
+            "@type": "Country",
+            name: "Honduras",
+          },
+          inLanguage: "es",
+        }),
+      },
+    ],
   }),
   component: MentoriaPage,
 });

@@ -104,6 +104,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: "ABC Financiero",
+              url: "https://abcfinanciero.com",
+              description: "Educación financiera honesta para hondureños que quieren aprender a invertir en la bolsa de valores.",
+            },
+            {
+              "@type": "Organization",
+              name: "ABC Financiero",
+              url: "https://abcfinanciero.com",
+              description: "Empresa de educación financiera fundada por Ricardo Araque para enseñar a invertir en la bolsa de valores desde Honduras.",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

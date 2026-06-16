@@ -1,0 +1,14 @@
+# ABC Financiero
+
+> Educación financiera honesta para hondureños que quieren aprender a invertir en la bolsa de valores — con claridad, estrategia y acompañamiento real.
+
+## Pages
+
+- [Inicio](/): Educación financiera para hondureños. Conoce nuestros cursos, ebooks, mentoría y guías gratuitas.
+- [Curso](/curso): Crece tu dinero en la bolsa de valores — curso pregrabado de 13 módulos con comunidad WhatsApp y llamada personal incluida.
+- [E-book](/ebook): De Principiante a Inversionista — guía completa para entender la inversión y empezar a hacer crecer tu dinero desde Honduras.
+- [Mentoría](/mentoria): Acompañamiento personalizado 1 a 1 para aprender a invertir con un plan hecho a tu medida.
+- [Guía gratuita](/guia): Guía paso a paso para abrir tu cuenta en Hapi y empezar a invertir desde Honduras con solo $10.
+- [Contacto](/contacto): Envíanos un mensaje o reserva una llamada gratuita de 15 minutos.
+- [Aviso legal](/legal): Términos y condiciones del sitio.
+- [Política de privacidad](/privacidad): Cómo manejamos tu información personal.

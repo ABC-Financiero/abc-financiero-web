@@ -20,6 +20,71 @@ export const Route = createFileRoute("/curso")({
         content: "13 módulos · Comunidad WhatsApp · Llamada personal · Acceso de por vida.",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: "Crece tu dinero en la bolsa de valores",
+          description: "Curso pregrabado de 13 módulos para aprender a invertir en la bolsa de valores desde Honduras. Incluye comunidad WhatsApp, llamada personal y acceso de por vida.",
+          provider: {
+            "@type": "Organization",
+            name: "ABC Financiero",
+            url: "https://abcfinanciero.com",
+          },
+          educationalLevel: "Beginner",
+          inLanguage: "es",
+          offers: {
+            "@type": "Offer",
+            price: "1044",
+            priceCurrency: "HNL",
+            availability: "https://schema.org/InStock",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "¿Necesito experiencia previa?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No. El curso empieza desde cero absoluto. No necesitas saber nada de finanzas para empezar.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "¿Cuánto dinero necesito para invertir?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "En el broker que usamos puedes empezar con L250. El curso te enseña a construir con lo que tienes hoy, no es necesario miles de lempiras.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "¿Qué pasa si el mercado cae?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "El módulo de perfil de inversor y plan de inversión está diseñado precisamente para esto. Invertir bien significa saber qué hacer cuando el mercado baja.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "¿Tengo tiempo para hacer el curso?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Es un curso pregrabado. Lo ves a tu ritmo, cuando puedas, cuantas veces quieras.",
+              },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: CursoPage,
 });
