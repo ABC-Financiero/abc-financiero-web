@@ -504,25 +504,48 @@ function Testimonials() {
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${idx * 100}%)` }}
             >
-              {items.map((t) => (
+              {items.map((t, i) => (
                 <div
-                  key={t.name + t.tag}
+                  key={t.name + t.tag + (t.image ? "-img" : `-${i}`)}
                   className="w-full shrink-0 p-8 md:p-12"
                 >
-                  <Quote
-                    className="size-8"
-                    style={{ color: "#1A6B55", opacity: 0.4 }}
-                  />
-                  <p
-                    className="mt-4 font-serif italic"
-                    style={{
-                      color: "#1C2B27",
-                      fontSize: 20,
-                      lineHeight: 1.55,
-                    }}
-                  >
-                    “{t.quote}”
-                  </p>
+                  {t.image ? (
+                    <>
+                      <img
+                        src={t.image}
+                        alt="Captura de resultados de inversión"
+                        className="mx-auto mb-6 max-h-64 w-auto rounded-xl object-contain"
+                        loading="lazy"
+                      />
+                      <p
+                        className="mt-4 font-serif italic"
+                        style={{
+                          color: "#1C2B27",
+                          fontSize: 20,
+                          lineHeight: 1.55,
+                        }}
+                      >
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <Quote
+                        className="size-8"
+                        style={{ color: "#1A6B55", opacity: 0.4 }}
+                      />
+                      <p
+                        className="mt-4 font-serif italic"
+                        style={{
+                          color: "#1C2B27",
+                          fontSize: 20,
+                          lineHeight: 1.55,
+                        }}
+                      >
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                    </>
+                  )}
                   <div className="mt-6 flex items-center gap-3">
                     <span
                       className="grid h-11 w-11 place-items-center rounded-full text-sm font-bold text-white"
