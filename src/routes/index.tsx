@@ -441,6 +441,14 @@ function Solutions() {
 function Testimonials() {
   const items = [
     {
+      image: testimonioImg.url,
+      quote:
+        "Yo empecé a invertir el mes pasado a los 24, con mis poderosos 87 dólares, pero es un empiezo ✨",
+      name: "Miembro de la comunidad",
+      tag: "Primeros resultados",
+      initials: "MC",
+    },
+    {
       quote:
         "Amigo, gracias a su página hoy comencé el mundo de las inversiones. Espero me vaya bien y gracias de verdad por el contenido, sin duda alguna es muy importante.",
       name: "Seguidor en Instagram",
