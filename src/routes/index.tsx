@@ -507,7 +507,8 @@ function Testimonials() {
               {items.map((t, i) => (
                 <div
                   key={t.name + t.tag + (t.image ? "-img" : `-${i}`)}
-                  className="w-full shrink-0 p-8 md:p-12"
+                  className="flex w-full shrink-0 flex-col p-8 md:p-12"
+                  style={{ minHeight: 480 }}
                 >
                   {t.image ? (
                     <>
@@ -518,7 +519,7 @@ function Testimonials() {
                         loading="lazy"
                       />
                       <p
-                        className="mt-4 font-serif italic"
+                        className="mt-auto font-serif italic"
                         style={{
                           color: "#1C2B27",
                           fontSize: 20,
@@ -530,12 +531,14 @@ function Testimonials() {
                     </>
                   ) : (
                     <>
-                      <Quote
-                        className="size-8"
-                        style={{ color: "#1A6B55", opacity: 0.4 }}
-                      />
+                      <div className="mb-6 flex h-64 items-center justify-center">
+                        <Quote
+                          className="size-16"
+                          style={{ color: "#1A6B55", opacity: 0.25 }}
+                        />
+                      </div>
                       <p
-                        className="mt-4 font-serif italic"
+                        className="mt-auto font-serif italic"
                         style={{
                           color: "#1C2B27",
                           fontSize: 20,
