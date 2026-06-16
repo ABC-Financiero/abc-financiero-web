@@ -268,8 +268,7 @@ function HowWeHelp() {
 
 /* ------------------------------ Solutions ------------------------------ */
 function Solutions() {
-  const { rate } = useUsdHnlRate();
-  const cursoLps = formatLempiras(37, rate);
+  const cursoLps = "L1,044";
 
   const cardBase: React.CSSProperties = {
     background: "#FFFFFF",
@@ -374,7 +373,7 @@ function Solutions() {
               a hacer crecer tu dinero desde Honduras.
             </p>
             <div className="mt-5">
-              <div style={priceStyle}>L270</div>
+              <div style={priceStyle}>L282</div>
               <div style={subPrice}>pago único</div>
             </div>
             <div className="mt-5">
