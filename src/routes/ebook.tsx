@@ -23,6 +23,29 @@ export const Route = createFileRoute("/ebook")({
       },
       { property: "og:image", content: ebookCover.url },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Book",
+          name: "De Principiante a Inversionista",
+          description: "La guía completa para entender la bolsa de valores y hacer tu primera inversión desde Honduras. E-book digital de 18 páginas.",
+          author: {
+            "@type": "Organization",
+            name: "ABC Financiero",
+            url: "https://abcfinanciero.com",
+          },
+          inLanguage: "es",
+          offers: {
+            "@type": "Offer",
+            price: "282",
+            priceCurrency: "HNL",
+            availability: "https://schema.org/InStock",
+          },
+        }),
+      },
+    ],
   }),
   component: EbookPage,
 });
