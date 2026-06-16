@@ -81,6 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "lC6or05LcJ3N637ie-tfxQbZlL8-UpAykoZ_V_vu_mI" },
       { title: "ABC Financiero - Educación financiera en Honduras" },
       { name: "description", content: "Empresa orientada a servicios educativos de la educación financiera." },
       { name: "author", content: "Lovable" },
