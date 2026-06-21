@@ -497,11 +497,11 @@ function MentoriaPage() {
       <main>
         <Hero />
         <SectionDivider />
+        <ForWhom />
+        <SectionDivider />
         <HowItWorks />
         <SectionDivider />
         <Includes />
-        <SectionDivider />
-        <ForWhom />
         <SectionDivider />
         {showForm && (
           <>
