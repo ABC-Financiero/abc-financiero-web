@@ -251,7 +251,7 @@ function Includes() {
     {
       icon: Target,
       title: "Enfoque en resultados",
-      text: "Cada sesión tiene un objetivo claro y medible.",
+      text: "Definimos un objetivo claro y medible para tu mentoría.",
     },
   ];
   return (
