@@ -255,8 +255,14 @@ function Includes() {
           className="text-3xl font-bold tracking-tight md:text-4xl"
           style={{ color: "#1A6B55" }}
         >
-          ¿Qué incluye la mentoría?
+          ¿Qué incluye tu reserva?
         </h2>
+        <p
+          className="mt-3 max-w-2xl text-[15px] leading-[1.65]"
+          style={{ color: "#3D5A52" }}
+        >
+          Al reservar tu cupo de mentoría, esto es lo que recibes de inmediato.
+        </p>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {items.map((it) => (
             <div
@@ -288,6 +294,13 @@ function Includes() {
             </div>
           ))}
         </div>
+        <p
+          className="mx-auto mt-10 max-w-xl text-center text-[15px] leading-[1.65]"
+          style={{ color: "#3D5A52" }}
+        >
+          Todo esto está incluido al reservar tu mentoría. El primer paso es
+          escribirnos por WhatsApp y confirmar tu cupo.
+        </p>
       </div>
     </section>
   );
