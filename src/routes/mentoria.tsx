@@ -58,7 +58,7 @@ export const Route = createFileRoute("/mentoria")({
   component: MentoriaPage,
 });
 
-function Hero({ onReserve }: { onReserve: () => void }) {
+function Hero() {
   return (
     <PageHero
       eyebrow={
@@ -84,14 +84,12 @@ function Hero({ onReserve }: { onReserve: () => void }) {
       }
       subtitle="Acompañamiento real desde la primera sesión: claridad, estrategia y pasos concretos."
     >
-      <button
-        type="button"
-        onClick={onReserve}
-        className="inline-flex items-center justify-center rounded-full text-white transition-opacity hover:opacity-95"
-        style={{ background: "#2E9B7A", fontWeight: 700, padding: "12px 26px" }}
+      <p
+        className="mx-auto mt-6 text-sm md:text-[15px]"
+        style={{ color: "rgba(255,255,255,0.72)", maxWidth: 520 }}
       >
-        Reservar llamada gratuita
-      </button>
+        Sesiones 1 a 1 en línea · Desde Honduras · Cupos limitados cada semana
+      </p>
     </PageHero>
   );
 }
