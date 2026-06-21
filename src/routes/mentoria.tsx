@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ClipboardList,
   Map as MapIcon,
@@ -6,6 +7,11 @@ import {
   Target,
   HelpCircle,
   Sparkles,
+  MessageCircle,
+  Video,
+  CreditCard,
+  CalendarCheck,
+  LifeBuoy,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -35,16 +41,14 @@ export const Route = createFileRoute("/mentoria")({
           "@context": "https://schema.org",
           "@type": "Service",
           name: "Mentoría 1 a 1 | ABC Financiero",
-          description: "Mentoría personalizada de finanzas e inversiones desde Honduras. Acompañamiento real para ordenar tus finanzas, salir de deudas o empezar a invertir con un plan hecho para ti.",
+          description:
+            "Mentoría personalizada de finanzas e inversiones desde Honduras. Acompañamiento real para ordenar tus finanzas, salir de deudas o empezar a invertir con un plan hecho para ti.",
           provider: {
             "@type": "Organization",
             name: "ABC Financiero",
             url: "https://abcfinanciero.com",
           },
-          areaServed: {
-            "@type": "Country",
-            name: "Honduras",
-          },
+          areaServed: { "@type": "Country", name: "Honduras" },
           inLanguage: "es",
         }),
       },
@@ -53,10 +57,14 @@ export const Route = createFileRoute("/mentoria")({
   component: MentoriaPage,
 });
 
-function Hero() {
+function Hero({ onReserve }: { onReserve: () => void }) {
   return (
     <PageHero
-      eyebrow={<><Sparkles className="size-3.5" /> Mentoría personalizada</>}
+      eyebrow={
+        <>
+          <Sparkles className="size-3.5" /> Mentoría personalizada
+        </>
+      }
       title={
         <>
           Un plan de inversión hecho{" "}
@@ -75,14 +83,109 @@ function Hero() {
       }
       subtitle="Acompañamiento real desde la primera sesión: claridad, estrategia y pasos concretos."
     >
-      <a
-        href="#llamada"
+      <button
+        type="button"
+        onClick={onReserve}
         className="inline-flex items-center justify-center rounded-full text-white transition-opacity hover:opacity-95"
         style={{ background: "#2E9B7A", fontWeight: 700, padding: "12px 26px" }}
       >
         Reservar llamada gratuita
-      </a>
+      </button>
     </PageHero>
+  );
+}
+
+function HowItWorks({ onReserve }: { onReserve: () => void }) {
+  const steps = [
+    {
+      icon: MessageCircle,
+      title: "1. Contacto inicial",
+      text: "Nos escribes por WhatsApp o reservas una llamada gratuita de 15 minutos. Resolvemos tus dudas y te explicamos si la mentoría es para ti — sin compromiso.",
+    },
+    {
+      icon: Video,
+      title: "2. Sesión de mentoría (2 horas por Google Meet)",
+      text: "Videollamada 1 a 1 donde cubrimos conceptos, estrategias, errores comunes, análisis de activos y cómo manejar la plataforma de inversión paso a paso.",
+    },
+    {
+      icon: CreditCard,
+      title: "3. Reserva con 50% de adelanto",
+      text: "Cuando decides avanzar, se reserva tu cupo con el 50% de adelanto. El 50% restante se paga al finalizar la sesión.",
+    },
+    {
+      icon: CalendarCheck,
+      title: "4. Agendamos día y hora",
+      text: "Confirmado el adelanto, eliges el día y la hora que mejor te funcione para realizar la mentoría.",
+    },
+    {
+      icon: LifeBuoy,
+      title: "5. Seguimiento por WhatsApp",
+      text: "Al cumplir el objetivo de la sesión, tienes acceso a soporte continuo por WhatsApp para resolver dudas y recibir acompañamiento.",
+    },
+  ];
+  return (
+    <section className="bg-white py-20">
+      <div className="mx-auto max-w-6xl px-4">
+        <h2
+          className="text-3xl font-bold tracking-tight md:text-4xl"
+          style={{ color: "#1A6B55" }}
+        >
+          ¿Cómo funciona?
+        </h2>
+        <p
+          className="mt-3 max-w-2xl text-[15px] leading-[1.65]"
+          style={{ color: "#3D5A52" }}
+        >
+          Un proceso claro y sin sorpresas, desde el primer mensaje hasta el
+          seguimiento posterior a tu mentoría.
+        </p>
+        <ol className="mt-12 grid gap-6 md:grid-cols-2">
+          {steps.map((s) => (
+            <li
+              key={s.title}
+              className="rounded-[20px] bg-white p-7"
+              style={{
+                border: "1px solid #C5E4DA",
+                boxShadow: "0 2px 12px rgba(26,107,85,0.06)",
+              }}
+            >
+              <span
+                className="grid h-11 w-11 place-items-center rounded-full"
+                style={{ background: "#E8F5F0", color: "#1A6B55" }}
+              >
+                <s.icon className="size-5" strokeWidth={1.6} />
+              </span>
+              <h3
+                className="mt-4 text-lg font-bold"
+                style={{ color: "#1C2B27" }}
+              >
+                {s.title}
+              </h3>
+              <p
+                className="mt-2 text-[15px] leading-[1.65]"
+                style={{ color: "#3D5A52" }}
+              >
+                {s.text}
+              </p>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-10">
+          <button
+            type="button"
+            onClick={onReserve}
+            className="inline-flex items-center justify-center rounded-full text-white transition-opacity hover:opacity-95"
+            style={{
+              background: "#2E9B7A",
+              fontWeight: 700,
+              padding: "12px 26px",
+            }}
+          >
+            Reservar llamada gratuita
+          </button>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -110,9 +213,12 @@ function Includes() {
     },
   ];
   return (
-    <section className="bg-white py-20">
+    <section style={{ background: "#F0F5F3" }} className="py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#1A6B55" }}>
+        <h2
+          className="text-3xl font-bold tracking-tight md:text-4xl"
+          style={{ color: "#1A6B55" }}
+        >
           ¿Qué incluye la mentoría?
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -131,10 +237,16 @@ function Includes() {
               >
                 <it.icon className="size-5" strokeWidth={1.6} />
               </span>
-              <h3 className="mt-4 text-lg font-bold" style={{ color: "#1C2B27" }}>
+              <h3
+                className="mt-4 text-lg font-bold"
+                style={{ color: "#1C2B27" }}
+              >
                 {it.title}
               </h3>
-              <p className="mt-2 text-[15px] leading-[1.65]" style={{ color: "#3D5A52" }}>
+              <p
+                className="mt-2 text-[15px] leading-[1.65]"
+                style={{ color: "#3D5A52" }}
+              >
                 {it.text}
               </p>
             </div>
@@ -152,9 +264,12 @@ function ForWhom() {
     "Quieres empezar a invertir con acompañamiento profesional",
   ];
   return (
-    <section style={{ background: "#F0F5F3" }} className="py-20">
+    <section className="bg-white py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" style={{ color: "#1A6B55" }}>
+        <h2
+          className="text-3xl font-bold tracking-tight md:text-4xl"
+          style={{ color: "#1A6B55" }}
+        >
           ¿Para quién es?
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -173,7 +288,10 @@ function ForWhom() {
               >
                 {i + 1}
               </span>
-              <p className="mt-4 text-[15px] leading-[1.65]" style={{ color: "#1C2B27", fontWeight: 500 }}>
+              <p
+                className="mt-4 text-[15px] leading-[1.65]"
+                style={{ color: "#1C2B27", fontWeight: 500 }}
+              >
                 {t}
               </p>
             </div>
@@ -184,7 +302,7 @@ function ForWhom() {
   );
 }
 
-function FinalCTA() {
+function FinalCTA({ onReserve }: { onReserve: () => void }) {
   return (
     <section
       className="relative overflow-hidden py-20 text-center"
@@ -235,8 +353,9 @@ function FinalCTA() {
             decimos si la mentoría es para ti — sin presión y totalmente gratis.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="#llamada"
+            <button
+              type="button"
+              onClick={onReserve}
               className="inline-flex items-center justify-center rounded-full transition-opacity hover:opacity-95"
               style={{
                 background: "#2E9B7A",
@@ -247,21 +366,7 @@ function FinalCTA() {
               }}
             >
               Reservar llamada gratuita
-            </a>
-            <a
-              href="#llamada"
-              className="inline-flex items-center justify-center rounded-full transition-colors"
-              style={{
-                background: "transparent",
-                border: "1.5px solid rgba(255,255,255,0.35)",
-                color: "#FFFFFF",
-                fontWeight: 600,
-                padding: "12px 24px",
-                fontSize: 14,
-              }}
-            >
-              Ver cómo funciona
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -270,19 +375,38 @@ function FinalCTA() {
 }
 
 function MentoriaPage() {
+  const [showForm, setShowForm] = useState(false);
+
+  const handleReserve = () => {
+    setShowForm(true);
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document
+          .getElementById("llamada")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 60);
+    });
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans text-brand-neutral-700 antialiased">
       <SiteHeader />
       <main>
-        <Hero />
+        <Hero onReserve={handleReserve} />
+        <SectionDivider />
+        <HowItWorks onReserve={handleReserve} />
         <SectionDivider />
         <Includes />
         <SectionDivider />
         <ForWhom />
         <SectionDivider />
-        <QualificationCall id="llamada" />
-        <SectionDivider />
-        <FinalCTA />
+        {showForm && (
+          <>
+            <QualificationCall id="llamada" />
+            <SectionDivider />
+          </>
+        )}
+        <FinalCTA onReserve={handleReserve} />
       </main>
       <SiteFooter />
     </div>
