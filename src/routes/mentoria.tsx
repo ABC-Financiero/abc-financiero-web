@@ -17,6 +17,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero, SectionDivider } from "@/components/PageHero";
 import { QualificationCall } from "@/components/QualificationCall";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/mentoria")({
   head: () => ({
@@ -57,7 +58,7 @@ export const Route = createFileRoute("/mentoria")({
   component: MentoriaPage,
 });
 
-function Hero({ onReserve }: { onReserve: () => void }) {
+function Hero() {
   return (
     <PageHero
       eyebrow={
@@ -83,19 +84,17 @@ function Hero({ onReserve }: { onReserve: () => void }) {
       }
       subtitle="Acompañamiento real desde la primera sesión: claridad, estrategia y pasos concretos."
     >
-      <button
-        type="button"
-        onClick={onReserve}
-        className="inline-flex items-center justify-center rounded-full text-white transition-opacity hover:opacity-95"
-        style={{ background: "#2E9B7A", fontWeight: 700, padding: "12px 26px" }}
+      <p
+        className="mx-auto mt-6 text-sm md:text-[15px]"
+        style={{ color: "rgba(255,255,255,0.72)", maxWidth: 520 }}
       >
-        Reservar llamada gratuita
-      </button>
+        Sesiones 1 a 1 en línea · Desde Honduras · Cupos limitados cada semana
+      </p>
     </PageHero>
   );
 }
 
-function HowItWorks({ onReserve }: { onReserve: () => void }) {
+function HowItWorks() {
   const steps = [
     {
       icon: MessageCircle,
@@ -170,22 +169,59 @@ function HowItWorks({ onReserve }: { onReserve: () => void }) {
             </li>
           ))}
         </ol>
-        <div className="mt-10">
-          <button
-            type="button"
-            onClick={onReserve}
-            className="inline-flex items-center justify-center rounded-full text-white transition-opacity hover:opacity-95"
-            style={{
-              background: "#2E9B7A",
-              fontWeight: 700,
-              padding: "12px 26px",
-            }}
-          >
-            Reservar llamada gratuita
-          </button>
-        </div>
+        <ReserveCard />
       </div>
     </section>
+  );
+}
+
+function ReserveCard() {
+  const reserveUrl = buildWhatsAppUrl(
+    "Hola, me interesa reservar un cupo para mentoría. ¿Me puedes dar más información?"
+  );
+  return (
+    <div
+      className="mt-12 rounded-[24px] p-8 text-center md:p-10"
+      style={{
+        background: "#FFFFFF",
+        border: "1px solid #C5E4DA",
+        boxShadow: "0 8px 30px rgba(26,107,85,0.08)",
+      }}
+    >
+      <h3
+        className="text-xl font-bold md:text-2xl"
+        style={{ color: "#1C2B27" }}
+      >
+        ¿Te interesa reservar tu cupo?
+      </h3>
+      <p
+        className="mx-auto mt-3 max-w-xl text-[15px] leading-[1.65]"
+        style={{ color: "#3D5A52" }}
+      >
+        Escríbenos por WhatsApp y te ayudamos a elegir el mejor día y hora para
+        tu sesión.
+      </p>
+      <a
+        href={reserveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 inline-block rounded-full p-[2px] transition-transform duration-200 hover:scale-[1.02]"
+        style={{
+          background:
+            "linear-gradient(90deg, #2E9B7A, #5CE0B6, #2E9B7A, #2E9B7A)",
+          backgroundSize: "300% 100%",
+          animation: "gradient-shift 3.5s ease infinite",
+        }}
+      >
+        <span
+          className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-bold"
+          style={{ color: "#1A6B55" }}
+        >
+          <MessageCircle className="size-4" strokeWidth={1.8} />
+          Reservar mi cupo de mentoría
+        </span>
+      </a>
+    </div>
   );
 }
 
@@ -219,8 +255,14 @@ function Includes() {
           className="text-3xl font-bold tracking-tight md:text-4xl"
           style={{ color: "#1A6B55" }}
         >
-          ¿Qué incluye la mentoría?
+          ¿Qué incluye tu reserva?
         </h2>
+        <p
+          className="mt-3 max-w-2xl text-[15px] leading-[1.65]"
+          style={{ color: "#3D5A52" }}
+        >
+          Al reservar tu cupo de mentoría, esto es lo que recibes de inmediato.
+        </p>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {items.map((it) => (
             <div
@@ -252,6 +294,13 @@ function Includes() {
             </div>
           ))}
         </div>
+        <p
+          className="mx-auto mt-10 max-w-xl text-center text-[15px] leading-[1.65]"
+          style={{ color: "#3D5A52" }}
+        >
+          Todo esto está incluido al reservar tu mentoría. El primer paso es
+          escribirnos por WhatsApp y confirmar tu cupo.
+        </p>
       </div>
     </section>
   );
@@ -392,9 +441,9 @@ function MentoriaPage() {
     <div className="min-h-screen bg-white font-sans text-brand-neutral-700 antialiased">
       <SiteHeader />
       <main>
-        <Hero onReserve={handleReserve} />
+        <Hero />
         <SectionDivider />
-        <HowItWorks onReserve={handleReserve} />
+        <HowItWorks />
         <SectionDivider />
         <Includes />
         <SectionDivider />

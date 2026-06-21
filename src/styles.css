@@ -73,6 +73,12 @@
   50% { box-shadow: 0 0 0 14px color-mix(in oklab, var(--brand-emerald-mid) 0%, transparent); }
 }
 
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @utility btn-primary {
   background: #2E9B7A;
   color: #FFFFFF;
