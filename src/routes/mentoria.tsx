@@ -12,6 +12,12 @@ import {
   CreditCard,
   CalendarCheck,
   LifeBuoy,
+  Compass,
+  TrendingDown,
+  TrendingUp,
+  Wallet,
+  User,
+  Lightbulb,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -181,46 +187,56 @@ function ReserveCard() {
   );
   return (
     <div
-      className="mt-12 rounded-[24px] p-8 text-center md:p-10"
+      className="relative mt-12 overflow-hidden rounded-[24px] p-8 text-center md:p-10"
       style={{
-        background: "#FFFFFF",
-        border: "1px solid #C5E4DA",
-        boxShadow: "0 8px 30px rgba(26,107,85,0.08)",
+        background:
+          "linear-gradient(160deg, #0A1F1A 0%, #0F3D33 55%, #1A6B55 100%)",
+        border: "1px solid rgba(92,224,182,0.25)",
+        boxShadow: "0 20px 50px rgba(10,31,26,0.35)",
       }}
     >
-      <h3
-        className="text-xl font-bold md:text-2xl"
-        style={{ color: "#1C2B27" }}
-      >
-        ¿Te interesa reservar tu cupo?
-      </h3>
-      <p
-        className="mx-auto mt-3 max-w-xl text-[15px] leading-[1.65]"
-        style={{ color: "#3D5A52" }}
-      >
-        Escríbenos por WhatsApp y te ayudamos a elegir el mejor día y hora para
-        tu sesión.
-      </p>
-      <a
-        href={reserveUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-6 inline-block rounded-full p-[2px] transition-transform duration-200 hover:scale-[1.02]"
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            "linear-gradient(90deg, #2E9B7A, #5CE0B6, #2E9B7A, #2E9B7A)",
-          backgroundSize: "300% 100%",
-          animation: "gradient-shift 3.5s ease infinite",
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
         }}
-      >
-        <span
-          className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-bold"
-          style={{ color: "#1A6B55" }}
+      />
+      <div className="relative">
+        <h3
+          className="text-xl font-bold md:text-2xl"
+          style={{ color: "#FFFFFF" }}
         >
-          <MessageCircle className="size-4" strokeWidth={1.8} />
-          Reservar mi cupo de mentoría
-        </span>
-      </a>
+          ¿Te interesa reservar tu cupo?
+        </h3>
+        <p
+          className="mx-auto mt-3 max-w-xl text-[15px] leading-[1.65]"
+          style={{ color: "rgba(255,255,255,0.78)" }}
+        >
+          Escríbenos por WhatsApp y te ayudamos a elegir el mejor día y hora para
+          tu sesión.
+        </p>
+        <a
+          href={reserveUrl}
+          className="mt-6 inline-block rounded-full p-[2px] transition-transform duration-200 hover:scale-[1.02]"
+          style={{
+            background:
+              "linear-gradient(90deg, #5CE0B6, #A7E3CE, #5CE0B6, #5CE0B6)",
+            backgroundSize: "300% 100%",
+            animation: "gradient-shift 3.5s ease infinite",
+          }}
+        >
+          <span
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-bold"
+            style={{ background: "#0A1F1A", color: "#FFFFFF" }}
+          >
+            <MessageCircle className="size-4" strokeWidth={1.8} />
+            Reservar mi cupo de mentoría
+          </span>
+        </a>
+      </div>
     </div>
   );
 }
@@ -245,7 +261,7 @@ function Includes() {
     {
       icon: Target,
       title: "Enfoque en resultados",
-      text: "Cada sesión tiene un objetivo claro y medible.",
+      text: "Definimos un objetivo claro y medible para tu mentoría.",
     },
   ];
   return (
@@ -308,40 +324,81 @@ function Includes() {
 
 function ForWhom() {
   const items = [
-    "Quieres ordenar tus finanzas pero no sabes cómo empezar",
-    "Tienes deudas y necesitas un plan real para salir de ellas",
-    "Quieres empezar a invertir con acompañamiento profesional",
+    {
+      icon: Compass,
+      title: "No sabes por dónde empezar",
+      text: "Tus finanzas están desordenadas y cada mes sientes que el dinero se te va sin un rumbo claro.",
+    },
+    {
+      icon: TrendingDown,
+      title: "Tienes deudas que te agobian",
+      text: "Necesitas un plan real para salir de deudas sin quedar en la ruina ni recurrir a soluciones rápidas.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Quieres invertir pero te da miedo",
+      text: "Has visto opciones de inversión pero no sabes cuál elegir ni cómo empezar sin perder dinero.",
+    },
+    {
+      icon: Wallet,
+      title: "No logras ahorrar",
+      text: "Ganas lo suficiente, pero a final de mes no queda nada. Necesitas una estructura que funcione.",
+    },
+    {
+      icon: User,
+      title: "Lo intentaste solo y no avanzas",
+      text: "Viste videos, leíste libros o probaste apps, pero sigues estancado sin un plan personalizado.",
+    },
+    {
+      icon: Lightbulb,
+      title: "Buscas claridad para decidir",
+      text: "Quieres tomar mejores decisiones financieras con confianza y dejar de improvisar con tu dinero.",
+    },
   ];
   return (
-    <section className="bg-white py-20">
+    <section className="relative overflow-hidden py-20" style={{ background: "#F0F5F3" }}>
       <div className="mx-auto max-w-6xl px-4">
-        <h2
-          className="text-3xl font-bold tracking-tight md:text-4xl"
-          style={{ color: "#1A6B55" }}
-        >
-          ¿Para quién es?
-        </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {items.map((t, i) => (
+        <div className="max-w-2xl">
+          <h2
+            className="text-3xl font-bold tracking-tight md:text-4xl"
+            style={{ color: "#1A6B55" }}
+          >
+            ¿Para quién es?
+          </h2>
+          <p
+            className="mt-3 text-[15px] leading-[1.65]"
+            style={{ color: "#3D5A52" }}
+          >
+            La mentoría está pensada para personas que quieren dejar de improvisar con su dinero y empezar a construir un patrimonio real.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((it, i) => (
             <div
               key={i}
-              className="rounded-[20px] bg-white p-7"
+              className="rounded-[20px] bg-white p-6"
               style={{
                 border: "1px solid #C5E4DA",
                 boxShadow: "0 2px 12px rgba(26,107,85,0.06)",
               }}
             >
               <span
-                className="inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white"
-                style={{ background: "#2E9B7A" }}
+                className="grid h-11 w-11 place-items-center rounded-full"
+                style={{ background: "#E8F5F0", color: "#1A6B55" }}
               >
-                {i + 1}
+                <it.icon className="size-5" strokeWidth={1.6} />
               </span>
-              <p
-                className="mt-4 text-[15px] leading-[1.65]"
-                style={{ color: "#1C2B27", fontWeight: 500 }}
+              <h3
+                className="mt-4 text-base font-bold"
+                style={{ color: "#1C2B27" }}
               >
-                {t}
+                {it.title}
+              </h3>
+              <p
+                className="mt-2 text-[15px] leading-[1.65]"
+                style={{ color: "#3D5A52" }}
+              >
+                {it.text}
               </p>
             </div>
           ))}
@@ -443,11 +500,11 @@ function MentoriaPage() {
       <main>
         <Hero />
         <SectionDivider />
+        <ForWhom />
+        <SectionDivider />
         <HowItWorks />
         <SectionDivider />
         <Includes />
-        <SectionDivider />
-        <ForWhom />
         <SectionDivider />
         {showForm && (
           <>
