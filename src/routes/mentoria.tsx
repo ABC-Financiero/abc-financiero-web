@@ -428,9 +428,9 @@ function MentoriaPage() {
     <div className="min-h-screen bg-white font-sans text-brand-neutral-700 antialiased">
       <SiteHeader />
       <main>
-        <Hero onReserve={handleReserve} />
+        <Hero />
         <SectionDivider />
-        <HowItWorks onReserve={handleReserve} />
+        <HowItWorks />
         <SectionDivider />
         <Includes />
         <SectionDivider />
