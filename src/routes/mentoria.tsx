@@ -17,6 +17,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero, SectionDivider } from "@/components/PageHero";
 import { QualificationCall } from "@/components/QualificationCall";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/mentoria")({
   head: () => ({
