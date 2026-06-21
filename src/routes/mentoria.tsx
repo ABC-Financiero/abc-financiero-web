@@ -94,7 +94,7 @@ function Hero() {
   );
 }
 
-function HowItWorks({ onReserve }: { onReserve: () => void }) {
+function HowItWorks() {
   const steps = [
     {
       icon: MessageCircle,
@@ -169,22 +169,59 @@ function HowItWorks({ onReserve }: { onReserve: () => void }) {
             </li>
           ))}
         </ol>
-        <div className="mt-10">
-          <button
-            type="button"
-            onClick={onReserve}
-            className="inline-flex items-center justify-center rounded-full text-white transition-opacity hover:opacity-95"
-            style={{
-              background: "#2E9B7A",
-              fontWeight: 700,
-              padding: "12px 26px",
-            }}
-          >
-            Reservar llamada gratuita
-          </button>
-        </div>
+        <ReserveCard />
       </div>
     </section>
+  );
+}
+
+function ReserveCard() {
+  const reserveUrl = buildWhatsAppUrl(
+    "Hola, me interesa reservar un cupo para mentoría. ¿Me puedes dar más información?"
+  );
+  return (
+    <div
+      className="mt-12 rounded-[24px] p-8 text-center md:p-10"
+      style={{
+        background: "#FFFFFF",
+        border: "1px solid #C5E4DA",
+        boxShadow: "0 8px 30px rgba(26,107,85,0.08)",
+      }}
+    >
+      <h3
+        className="text-xl font-bold md:text-2xl"
+        style={{ color: "#1C2B27" }}
+      >
+        ¿Te interesa reservar tu cupo?
+      </h3>
+      <p
+        className="mx-auto mt-3 max-w-xl text-[15px] leading-[1.65]"
+        style={{ color: "#3D5A52" }}
+      >
+        Escríbenos por WhatsApp y te ayudamos a elegir el mejor día y hora para
+        tu sesión.
+      </p>
+      <a
+        href={reserveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 inline-block rounded-full p-[2px] transition-transform duration-200 hover:scale-[1.02]"
+        style={{
+          background:
+            "linear-gradient(90deg, #2E9B7A, #5CE0B6, #2E9B7A, #2E9B7A)",
+          backgroundSize: "300% 100%",
+          animation: "gradient-shift 3.5s ease infinite",
+        }}
+      >
+        <span
+          className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-bold"
+          style={{ color: "#1A6B55" }}
+        >
+          <MessageCircle className="size-4" strokeWidth={1.8} />
+          Reservar mi cupo de mentoría
+        </span>
+      </a>
+    </div>
   );
 }
 
