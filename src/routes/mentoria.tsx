@@ -205,7 +205,10 @@ function ReserveCard() {
         }}
       />
       <div className="relative">
-        <h3 className="text-xl font-bold text-white md:text-2xl">
+        <h3
+          className="text-xl font-bold md:text-2xl"
+          style={{ color: "#FFFFFF" }}
+        >
           ¿Te interesa reservar tu cupo?
         </h3>
         <p
