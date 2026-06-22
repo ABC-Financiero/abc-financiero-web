@@ -49,7 +49,7 @@ export const Route = createFileRoute("/mentoria")({
           "@type": "Service",
           name: "Mentoría 1 a 1 | ABC Financiero",
           description:
-            "Mentoría personalizada de finanzas e inversiones desde Honduras. Acompañamiento real para ordenar tus finanzas, salir de deudas o empezar a invertir con un plan hecho para ti.",
+            "Mentoría 1 a 1 para aprender a invertir correctamente en la bolsa de valores desde Honduras. Acompañamiento personalizado para armar tu portafolio y tomar decisiones informadas.",
           provider: {
             "@type": "Organization",
             name: "ABC Financiero",
