@@ -18,12 +18,22 @@ import {
   User,
   Lightbulb,
   BookOpen,
+  Clock,
+  GraduationCap,
+  FileText,
+  CalendarDays,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero, SectionDivider } from "@/components/PageHero";
 import { QualificationCall } from "@/components/QualificationCall";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/mentoria")({
   head: () => ({
@@ -408,6 +418,166 @@ function ForWhom() {
   );
 }
 
+function FAQ() {
+  const categories = [
+    { id: "beginners", label: "Para principiantes", icon: HelpCircle },
+    { id: "duration", label: "Duración", icon: Clock },
+    { id: "learn", label: "Qué se aprende", icon: GraduationCap },
+    { id: "materials", label: "Materiales", icon: FileText },
+    { id: "booking", label: "Cómo se agenda", icon: CalendarDays },
+  ];
+
+  const faqs = [
+    {
+      category: "beginners",
+      q: "¿Necesito saber de inversiones para tomar la mentoría?",
+      a: "No. La mentoría está pensada para principiantes. Partimos desde los conceptos básicos y avanzamos a tu ritmo, sin presiones.",
+    },
+    {
+      category: "beginners",
+      q: "¿Puedo tomarla si nunca he invertido?",
+      a: "Sí. Muchos de nuestros clientes empiezan desde cero y salen con un plan claro y confianza para dar su primer paso en la bolsa.",
+    },
+    {
+      category: "duration",
+      q: "¿Cuánto dura la sesión?",
+      a: "Cada sesión dura 2 horas en videollamada por Google Meet. Es tiempo suficiente para cubrir teoría, práctica y resolver tus dudas.",
+    },
+    {
+      category: "duration",
+      q: "¿La sesión se graba?",
+      a: "Sí. Te compartimos la grabación para que puedas repasarla las veces que quieras.",
+    },
+    {
+      category: "learn",
+      q: "¿Qué temas se ven en la sesión?",
+      a: "Cubrimos conceptos clave, estrategias, errores comunes, análisis de activos y cómo usar la plataforma de inversión paso a paso.",
+    },
+    {
+      category: "learn",
+      q: "¿Cómo mejora mi forma de invertir?",
+      a: "Obtienes un plan personalizado, aprendes a gestionar el riesgo y tomas decisiones informadas con objetivos claros y medibles.",
+    },
+    {
+      category: "materials",
+      q: "¿Qué materiales recibo?",
+      a: "Recibes un diagnóstico de tu situación, un plan de acción personalizado y acceso a seguimiento por WhatsApp después de la sesión.",
+    },
+    {
+      category: "materials",
+      q: "¿Necesito abrir una cuenta de inversión antes?",
+      a: "No es obligatorio. Si ya tienes una, la revisamos juntos; si no, te orientamos en el proceso durante la mentoría.",
+    },
+    {
+      category: "booking",
+      q: "¿Cómo agendo mi sesión?",
+      a: "Escríbenos por WhatsApp, reservamos tu cupo con el 50% de adelanto y luego eliges el día y la hora que mejor te funcionen.",
+    },
+    {
+      category: "booking",
+      q: "¿Qué pasa si no puedo asistir?",
+      a: "Puedes reagendar tu sesión con al menos 24 horas de anticipación. Solo escríbenos y buscamos una nueva fecha.",
+    },
+  ];
+
+  return (
+    <section id="faq" className="relative overflow-hidden py-20 bg-dotted-emerald">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <span
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1"
+              style={{
+                background: "#E8F5F0",
+                color: "#1A6B55",
+                border: "1px solid #C5E4DA",
+                fontSize: 12,
+                fontWeight: 700,
+              }}
+            >
+              <HelpCircle className="size-3.5" /> Preguntas frecuentes
+            </span>
+            <h2
+              className="mt-4 text-3xl font-bold tracking-tight md:text-4xl"
+              style={{ color: "#1A6B55" }}
+            >
+              Todo lo que necesitas saber
+            </h2>
+            <p
+              className="mt-3 text-[15px] leading-[1.65]"
+              style={{ color: "#3D5A52" }}
+            >
+              Resolvemos las dudas más comunes sobre la mentoría para que tomes
+              una decisión informada y sin presión.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {categories.map((cat) => (
+                <span
+                  key={cat.id}
+                  className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold"
+                  style={{
+                    background: "#FFFFFF",
+                    color: "#1A6B55",
+                    border: "1px solid #C5E4DA",
+                  }}
+                >
+                  <cat.icon className="size-4" strokeWidth={1.8} />
+                  {cat.label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-8">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((item, index) => {
+                const CategoryIcon =
+                  categories.find((c) => c.id === item.category)?.icon ??
+                  HelpCircle;
+                return (
+                  <AccordionItem
+                    key={index}
+                    value={`faq-${index}`}
+                    className="overflow-hidden rounded-[20px] bg-white border-none p-1 transition-shadow duration-200 hover:shadow-md"
+                    style={{
+                      border: "1px solid #C5E4DA",
+                      boxShadow: "0 2px 12px rgba(26,107,85,0.06)",
+                    }}
+                  >
+                    <AccordionTrigger
+                      className="px-5 py-4 text-left text-[15px] font-bold hover:no-underline"
+                      style={{ color: "#1C2B27" }}
+                    >
+                      <span className="flex items-center gap-3">
+                        <span
+                          className="grid h-9 w-9 place-items-center rounded-full shrink-0"
+                          style={{ background: "#E8F5F0", color: "#1A6B55" }}
+                        >
+                          <CategoryIcon
+                            className="size-[18px]"
+                            strokeWidth={1.6}
+                          />
+                        </span>
+                        {item.q}
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className="px-5 pb-5 text-[15px] leading-[1.65]"
+                      style={{ color: "#3D5A52" }}
+                    >
+                      {item.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FinalCTA({ onReserve }: { onReserve: () => void }) {
   return (
     <section
@@ -505,6 +675,8 @@ function MentoriaPage() {
         <HowItWorks />
         <SectionDivider />
         <Includes />
+        <SectionDivider />
+        <FAQ />
         <SectionDivider />
         {showForm && (
           <>
