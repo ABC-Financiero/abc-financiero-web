@@ -676,6 +676,8 @@ function MentoriaPage() {
         <SectionDivider />
         <Includes />
         <SectionDivider />
+        <FAQ />
+        <SectionDivider />
         {showForm && (
           <>
             <QualificationCall id="llamada" />
