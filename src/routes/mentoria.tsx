@@ -183,7 +183,7 @@ function HowItWorks() {
 
 function ReserveCard() {
   const reserveUrl = buildWhatsAppUrl(
-    "Hola, me interesa reservar un cupo para mentoría. ¿Me puedes dar más información?"
+    "Hola, me interesa reservar un cupo para mentoría y aprender a invertir correctamente en la bolsa de valores. ¿Me puedes dar más información?"
   );
   return (
     <div
