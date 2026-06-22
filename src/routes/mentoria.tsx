@@ -32,13 +32,13 @@ export const Route = createFileRoute("/mentoria")({
       {
         name: "description",
         content:
-          "Mentoría personalizada de finanzas e inversiones desde Honduras. Reserva una llamada gratuita de 15 minutos.",
+          "Mentoría 1 a 1 para aprender a invertir correctamente en la bolsa de valores desde Honduras. Reserva tu llamada gratuita de 15 minutos.",
       },
       { property: "og:title", content: "Mentoría 1 a 1 | ABC Financiero" },
       {
         property: "og:description",
         content:
-          "Acompañamiento real para ordenar tus finanzas, salir de deudas o empezar a invertir con un plan hecho para ti.",
+          "Acompañamiento personalizado para invertir en bolsa desde cero, armar tu portafolio y tomar decisiones informadas.",
       },
     ],
     scripts: [
