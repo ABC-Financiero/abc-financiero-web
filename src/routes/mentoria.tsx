@@ -13,11 +13,11 @@ import {
   CalendarCheck,
   LifeBuoy,
   Compass,
-  TrendingDown,
   TrendingUp,
   Wallet,
   User,
   Lightbulb,
+  BookOpen,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
