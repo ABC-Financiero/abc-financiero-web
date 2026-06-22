@@ -3,18 +3,18 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
 type Q1 =
-  | "deudas"
-  | "gastos-superan"
+  | "sin-capital"
   | "ahorro-sin-invertir"
-  | "empezar-desde-cero";
+  | "empezar-desde-cero"
+  | "ya-invierto";
 
 type Q2 = "nada" | "menos-50" | "50-150" | "mas-150";
 
 const Q1_OPTIONS: { value: Q1; label: string }[] = [
-  { value: "deudas", label: "Tengo deudas y quiero salir de ellas" },
-  { value: "gastos-superan", label: "Mis gastos superan mis ingresos" },
-  { value: "ahorro-sin-invertir", label: "Ahorro pero no sé cómo invertir" },
-  { value: "empezar-desde-cero", label: "Quiero empezar a invertir desde cero" },
+  { value: "sin-capital", label: "Aún no invierto, quiero saber por dónde empezar" },
+  { value: "ahorro-sin-invertir", label: "Ahorro pero no sé cómo invertir en bolsa" },
+  { value: "empezar-desde-cero", label: "Quiero aprender a invertir en bolsa desde cero" },
+  { value: "ya-invierto", label: "Ya invierto pero quiero mejorar mis resultados" },
 ];
 
 const Q2_OPTIONS: { value: Q2; label: string }[] = [
