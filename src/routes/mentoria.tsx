@@ -18,12 +18,22 @@ import {
   User,
   Lightbulb,
   BookOpen,
+  Clock,
+  GraduationCap,
+  FileText,
+  CalendarDays,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero, SectionDivider } from "@/components/PageHero";
 import { QualificationCall } from "@/components/QualificationCall";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/mentoria")({
   head: () => ({
