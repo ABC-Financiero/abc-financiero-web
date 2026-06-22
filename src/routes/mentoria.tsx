@@ -88,7 +88,7 @@ function Hero() {
           </span>
         </>
       }
-      subtitle="Acompañamiento real desde la primera sesión: claridad, estrategia y pasos concretos."
+      subtitle="Aprende a invertir correctamente en la bolsa de valores con acompañamiento 1 a 1 desde tu primera sesión."
     >
       <p
         className="mx-auto mt-6 text-sm md:text-[15px]"
@@ -245,13 +245,13 @@ function Includes() {
   const items = [
     {
       icon: ClipboardList,
-      title: "Diagnóstico inicial",
-      text: "Analizamos tu situación financiera real desde la primera sesión.",
+      title: "Diagnóstico de inversión",
+      text: "Analizamos tu perfil, objetivos y situación actual para diseñar tu estrategia en bolsa.",
     },
     {
       icon: MapIcon,
       title: "Plan de acción personalizado",
-      text: "Un camino claro adaptado a tus metas y tu punto de partida.",
+      text: "Un camino claro para invertir desde cero o mejorar tu portafolio según tu perfil.",
     },
     {
       icon: Users,
@@ -261,7 +261,7 @@ function Includes() {
     {
       icon: Target,
       title: "Enfoque en resultados",
-      text: "Definimos un objetivo claro y medible para tu mentoría.",
+      text: "Definimos objetivos claros y medibles para tu inversión en bolsa.",
     },
   ];
   return (
@@ -327,32 +327,32 @@ function ForWhom() {
     {
       icon: Compass,
       title: "No sabes por dónde empezar",
-      text: "Tus finanzas están desordenadas y cada mes sientes que el dinero se te va sin un rumbo claro.",
-    },
-    {
-      icon: TrendingDown,
-      title: "Tienes deudas que te agobian",
-      text: "Necesitas un plan real para salir de deudas sin quedar en la ruina ni recurrir a soluciones rápidas.",
+      text: "Escuchas hablar de acciones, ETFs y fondos, pero no entiendes bien cómo funcionan ni por dónde comenzar.",
     },
     {
       icon: TrendingUp,
       title: "Quieres invertir pero te da miedo",
-      text: "Has visto opciones de inversión pero no sabes cuál elegir ni cómo empezar sin perder dinero.",
+      text: "Te preocupa invertir mal o elegir opciones riesgosas. Quieres aprender a tomar decisiones informadas en bolsa.",
     },
     {
       icon: Wallet,
-      title: "No logras ahorrar",
-      text: "Ganas lo suficiente, pero a final de mes no queda nada. Necesitas una estructura que funcione.",
+      title: "Tu dinero no está creciendo",
+      text: "Tienes ahorros estancados en el banco y quieres ponerlos a trabajar en el mercado de valores.",
     },
     {
       icon: User,
-      title: "Lo intentaste solo y no avanzas",
-      text: "Viste videos, leíste libros o probaste apps, pero sigues estancado sin un plan personalizado.",
+      title: "Te confundes con tanta información",
+      text: "Viste videos y leíste libros, pero sigues sin una estrategia clara para invertir en bolsa con confianza.",
     },
     {
       icon: Lightbulb,
-      title: "Buscas claridad para decidir",
-      text: "Quieres tomar mejores decisiones financieras con confianza y dejar de improvisar con tu dinero.",
+      title: "Quieres un plan personalizado",
+      text: "Buscas una guía paso a paso para invertir correctamente según tus metas, tu perfil y tu tolerancia al riesgo.",
+    },
+    {
+      icon: BookOpen,
+      title: "Quieres aprender desde cero",
+      text: "Nunca has invertido y prefieres empezar con buenas bases, sin cometer errores costosos de principiante.",
     },
   ];
   return (
@@ -369,7 +369,7 @@ function ForWhom() {
             className="mt-3 text-[15px] leading-[1.65]"
             style={{ color: "#3D5A52" }}
           >
-            La mentoría está pensada para personas que quieren dejar de improvisar con su dinero y empezar a construir un patrimonio real.
+            Esta mentoría es para ti si quieres aprender a invertir correctamente en la bolsa de valores, armar tu portafolio y tomar decisiones informadas desde el primer paso.
           </p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
