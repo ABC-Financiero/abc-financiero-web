@@ -249,7 +249,7 @@ export function QualificationCall({ id = "llamada" }: { id?: string }) {
               <form onSubmit={handleSubmit} className="mt-6 space-y-6">
                 <div>
                   <p className="mb-3 text-sm font-semibold text-brand-navy">
-                    ¿Cuál es tu situación financiera actual?
+                    ¿Cuál es tu situación actual con la inversión en bolsa?
                   </p>
                   <div className="grid gap-2">
                     {Q1_OPTIONS.map((o) => (
